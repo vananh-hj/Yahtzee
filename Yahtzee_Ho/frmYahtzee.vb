@@ -6,7 +6,7 @@
 
     'define variables for sub-scores
     Dim TallyArray(6)
-    Dim Max As Integer = 9
+    Dim Max As Integer
     Dim Zero As Integer
     Dim Sum As Integer
 
@@ -74,126 +74,152 @@
 
     Private Sub btnAces_Click(sender As Object, e As EventArgs) Handles btnAces.Click
         acesScored = True
-        ResetTallyAndRollCount()
         txtAces.Text = CStr(TallyArray(0))
+        UpperSection += TallyArray(0)
         TotalScore += TallyArray(0)
         GrandTotal += TallyArray(0)
+        ResetTallyAndRollCount()
     End Sub
 
     Private Sub btnTwos_Click(sender As Object, e As EventArgs) Handles btnTwos.Click
         twosScored = True
-        ResetTallyAndRollCount()
         txtTwos.Text = CStr(2 * TallyArray(1))
+        UpperSection += 2 * TallyArray(1)
         TotalScore += 2 * TallyArray(1)
         GrandTotal += 2 * TallyArray(1)
+        ResetTallyAndRollCount()
     End Sub
 
     Private Sub btnThrees_Click(sender As Object, e As EventArgs) Handles btnThrees.Click
         threesScored = True
         ResetTallyAndRollCount()
         txtThrees.Text = CStr(3 * TallyArray(2))
+        UpperSection += 3 * TallyArray(2)
         TotalScore += 3 * TallyArray(2)
         GrandTotal += 3 * TallyArray(2)
     End Sub
 
     Private Sub btnFours_Click(sender As Object, e As EventArgs) Handles btnFours.Click
         foursScored = True
-        ResetTallyAndRollCount()
         txtFours.Text = CStr(4 * TallyArray(3))
+        UpperSection += 4 * TallyArray(3)
         TotalScore += 4 * TallyArray(3)
         GrandTotal += 4 * TallyArray(3)
+        ResetTallyAndRollCount()
     End Sub
 
     Private Sub btnFives_Click(sender As Object, e As EventArgs) Handles btnFives.Click
         fivesScored = True
-        ResetTallyAndRollCount()
         txtFives.Text = CStr(5 * TallyArray(4))
-        TotalScore += 5 * TallyArray(4)
-        GrandTotal += 5 * TallyArray(4)
+        UpperSection += (5 * TallyArray(4))
+        TotalScore += (5 * TallyArray(4))
+        GrandTotal += (5 * TallyArray(4))
+        ResetTallyAndRollCount()
     End Sub
 
     Private Sub btnSixes_Click(sender As Object, e As EventArgs) Handles btnSixes.Click
         sixesScored = True
-        ResetTallyAndRollCount()
         txtSixes.Text = CStr(6 * TallyArray(5))
+        UpperSection += 6 * TallyArray(5)
         TotalScore += 6 * TallyArray(5)
         GrandTotal += 6 * TallyArray(5)
+        ResetTallyAndRollCount()
     End Sub
 
     Private Sub btn3OAK_Click(sender As Object, e As EventArgs) Handles btn3OAK.Click
         threeOAKScored = True
-        ResetTallyAndRollCount()
         If Max >= 3 Then
+            LowerSection += Sum
             GrandTotal += Sum
             txt3OAK.Text = CStr(Sum)
         Else
             txt3OAK.Text = "0"
         End If
+        ResetTallyAndRollCount()
     End Sub
 
     Private Sub btn4OAK_Click(sender As Object, e As EventArgs) Handles btn4OAK.Click
         fourOAKScored = True
-        ResetTallyAndRollCount()
         If Max >= 4 Then
+            LowerSection += Sum
             GrandTotal += Sum
             txt4OAK.Text = CStr(Sum)
         Else
             txt4OAK.Text = "0"
         End If
+        ResetTallyAndRollCount()
     End Sub
 
     Private Sub btnYahtzee_Click(sender As Object, e As EventArgs) Handles btnYahtzee.Click
         yahtzeeScored = True
-        ResetTallyAndRollCount()
         If Max = 5 Then
+            LowerSection += 50
             GrandTotal += 50
             txtYahtzee.Text = "50"
         Else
             txtYahtzee.Text = "0"
         End If
+        ResetTallyAndRollCount()
     End Sub
 
     Private Sub btnFullHouse_Click(sender As Object, e As EventArgs) Handles btnFullHouse.Click
         fullHouseScored = True
-        ResetTallyAndRollCount()
         If Max = 3 And Zero = 4 Then
+            LowerSection += 25
             GrandTotal += 25
             txtFullHouse.Text = "25"
         Else
             txtFullHouse.Text = "0"
         End If
+        ResetTallyAndRollCount()
     End Sub
 
     Private Sub btnSeq4_Click(sender As Object, e As EventArgs) Handles btnSeq4.Click
         fourSeqScored = True
-        ResetTallyAndRollCount()
         If (TallyArray(0) >= 1 And TallyArray(1) >= 1 And TallyArray(2) >= 1 And TallyArray(3) >= 1) Or
            (TallyArray(1) >= 1 And TallyArray(2) >= 1 And TallyArray(3) >= 1 And TallyArray(4) >= 1) Or
            (TallyArray(2) >= 1 And TallyArray(3) >= 1 And TallyArray(4) >= 1 And TallyArray(5) >= 1) Then
+            LowerSection += 30
             GrandTotal += 30
             txtSeq4.Text = "30"
         Else
             txtSeq4.Text = "0"
         End If
+        ResetTallyAndRollCount()
     End Sub
 
     Private Sub btnSeq5_Click(sender As Object, e As EventArgs) Handles btnSeq5.Click
         fiveSeqScored = True
-        ResetTallyAndRollCount()
         If Max = 1 And (TallyArray(0) = 0 Or TallyArray(5) = 0) Then
+            LowerSection += 40
             GrandTotal += 40
             txtSeq5.Text = "40"
         Else
             txtSeq5.Text = "0"
         End If
+        ResetTallyAndRollCount()
     End Sub
 
     Private Sub btnChance_Click(sender As Object, e As EventArgs) Handles btnChance.Click
         chanceScored = True
         DisableScoreButtons()
-        ResetTallyAndRollCount()
+        LowerSection += Sum
         GrandTotal += Sum
         txtChance.Text = CStr(Sum)
+        ResetTallyAndRollCount()
+    End Sub
+
+    Sub BonusPointsAdds()
+        'Check to see if Yahtzee bonus applies
+        If (txtYahtzee.Text = "50") And Max = 5 Then
+            txtYtzBonus.Text = "100"
+            LowerSection += 100
+        End If
+        ' Check to see if UpperSection >= 63 points to add one time 35 bonus
+        If UpperSection >= 63 And txtUpperSectionBonus.Text = "" Then
+            txtUpperSectionBonus.Text = "35"
+            UpperSection += UpperSectionBonus
+        End If
     End Sub
 
     Sub CalcTally()
@@ -234,6 +260,11 @@
         DisableScoreButtons()
         btnRollEm.Text = "Roll Em"
         btnRollEm.Enabled = True
+        BonusPointsAdds()
+        txtTotalUpperSection.Text = CStr(UpperSection)
+        txtTotalLowerScore.Text = CStr(LowerSection)
+        txtTotalScore.Text = CStr(TotalScore)
+        txtGrandTotal.Text = CStr(GrandTotal)
     End Sub
 
     Sub EnableScoreButtons()
@@ -313,13 +344,13 @@
 
     Private Sub HowToPlayToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles mnuHelpHowToPlay.Click
         Dim pr As New Process
-        Dim Site As String = "http://www.hasbro.com/common/instruct/yahtzee.pdf"
+        Dim Site As String = "http://grail.sourceforge.net/demo/yahtzee/rules.html"
         pr.StartInfo.FileName = Site
         pr.Start()
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles tmrRoll.Tick
-       
+
     End Sub
 
     Private Sub ToolTipAces_Popup(sender As Object, e As PopupEventArgs) Handles ToolTipAces.Popup
@@ -331,12 +362,19 @@
         'clear out old game and prepare for new game
         'Array to clear out output boxes
         Dim outputTextBoxes As TextBox() = {txtAces, txtTwos, txtThrees, txtFours, txtFives, txtFours,
-                                         txtFives, txtSixes, txt3OAK, txt4OAK, txtFullHouse, txtGrandTotal, txtBonus,
+                                         txtFives, txtSixes, txt3OAK, txt4OAK, txtFullHouse, txtGrandTotal, txtUpperSectionBonus,
                                          txtSeq4, txtSeq5, txtYahtzee, txtChance, txtTotalLowerScore,
-                                        txtTotalUpperSection, txtYtzBonus}
+                                        txtTotalScore, txtYtzBonus, txtTotalUpperSection}
         For k = 0 To outputTextBoxes.Length - 1
             outputTextBoxes(k).Text() = ""
         Next
+        'Zero out all scores kept
+        TotalScore = 0
+        Max = 0
+        Zero = 0
+        UpperSection = 0
+        LowerSection = 0
+        GrandTotal = 0
         'disable all roll checkboxes and have them checked to roll
         DisableChkBoxes()
         DisableScoreButtons()

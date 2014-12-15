@@ -38,3 +38,13 @@ C:\Users\Yen Vi\Documents\Git\temp\Yahtzee_Ho\bin\Debug\Yahtzee_Ho.xml
 C:\Users\Yen Vi\Documents\Git\temp\Yahtzee_Ho\obj\Debug\Yahtzee_Ho.frmYahtzee.resources
 C:\Users\Yen Vi\Documents\Git\temp\Yahtzee_Ho\obj\Debug\Yahtzee_Ho.Resources.resources
 C:\Users\Yen Vi\Documents\Git\temp\Yahtzee_Ho\obj\Debug\Yahtzee_Ho.vbproj.GenerateResource.Cache
+C:\Users\Yen Vi\Documents\Yahtzee\Yahtzee_Ho\bin\Debug\Yahtzee_Ho.exe.config
+C:\Users\Yen Vi\Documents\Yahtzee\Yahtzee_Ho\obj\Debug\Yahtzee_Ho.exe
+C:\Users\Yen Vi\Documents\Yahtzee\Yahtzee_Ho\obj\Debug\Yahtzee_Ho.xml
+C:\Users\Yen Vi\Documents\Yahtzee\Yahtzee_Ho\obj\Debug\Yahtzee_Ho.pdb
+C:\Users\Yen Vi\Documents\Yahtzee\Yahtzee_Ho\bin\Debug\Yahtzee_Ho.exe
+C:\Users\Yen Vi\Documents\Yahtzee\Yahtzee_Ho\bin\Debug\Yahtzee_Ho.pdb
+C:\Users\Yen Vi\Documents\Yahtzee\Yahtzee_Ho\bin\Debug\Yahtzee_Ho.xml
+C:\Users\Yen Vi\Documents\Yahtzee\Yahtzee_Ho\obj\Debug\Yahtzee_Ho.frmYahtzee.resources
+C:\Users\Yen Vi\Documents\Yahtzee\Yahtzee_Ho\obj\Debug\Yahtzee_Ho.Resources.resources
+C:\Users\Yen Vi\Documents\Yahtzee\Yahtzee_Ho\obj\Debug\Yahtzee_Ho.vbproj.GenerateResource.Cache

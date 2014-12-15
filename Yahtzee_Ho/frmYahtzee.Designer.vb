@@ -32,8 +32,8 @@ Partial Class frmYahtzee
         Me.btnTwos = New System.Windows.Forms.Button()
         Me.btnAces = New System.Windows.Forms.Button()
         Me.txtTotalUpperSection = New System.Windows.Forms.TextBox()
-        Me.txtBonus = New System.Windows.Forms.TextBox()
-        Me.TextBox17 = New System.Windows.Forms.TextBox()
+        Me.txtUpperSectionBonus = New System.Windows.Forms.TextBox()
+        Me.txtTotalScore = New System.Windows.Forms.TextBox()
         Me.txtSixes = New System.Windows.Forms.TextBox()
         Me.txtFives = New System.Windows.Forms.TextBox()
         Me.txtFours = New System.Windows.Forms.TextBox()
@@ -107,8 +107,8 @@ Partial Class frmYahtzee
         Me.GroupBox1.Controls.Add(Me.btnTwos)
         Me.GroupBox1.Controls.Add(Me.btnAces)
         Me.GroupBox1.Controls.Add(Me.txtTotalUpperSection)
-        Me.GroupBox1.Controls.Add(Me.txtBonus)
-        Me.GroupBox1.Controls.Add(Me.TextBox17)
+        Me.GroupBox1.Controls.Add(Me.txtUpperSectionBonus)
+        Me.GroupBox1.Controls.Add(Me.txtTotalScore)
         Me.GroupBox1.Controls.Add(Me.txtSixes)
         Me.GroupBox1.Controls.Add(Me.txtFives)
         Me.GroupBox1.Controls.Add(Me.txtFours)
@@ -196,21 +196,21 @@ Partial Class frmYahtzee
         Me.txtTotalUpperSection.Size = New System.Drawing.Size(116, 22)
         Me.txtTotalUpperSection.TabIndex = 12
         '
-        'txtBonus
+        'txtUpperSectionBonus
         '
-        Me.txtBonus.Location = New System.Drawing.Point(212, 315)
-        Me.txtBonus.Name = "txtBonus"
-        Me.txtBonus.ReadOnly = True
-        Me.txtBonus.Size = New System.Drawing.Size(116, 22)
-        Me.txtBonus.TabIndex = 11
+        Me.txtUpperSectionBonus.Location = New System.Drawing.Point(212, 315)
+        Me.txtUpperSectionBonus.Name = "txtUpperSectionBonus"
+        Me.txtUpperSectionBonus.ReadOnly = True
+        Me.txtUpperSectionBonus.Size = New System.Drawing.Size(116, 22)
+        Me.txtUpperSectionBonus.TabIndex = 11
         '
-        'TextBox17
+        'txtTotalScore
         '
-        Me.TextBox17.Location = New System.Drawing.Point(212, 277)
-        Me.TextBox17.Name = "TextBox17"
-        Me.TextBox17.ReadOnly = True
-        Me.TextBox17.Size = New System.Drawing.Size(116, 22)
-        Me.TextBox17.TabIndex = 10
+        Me.txtTotalScore.Location = New System.Drawing.Point(212, 277)
+        Me.txtTotalScore.Name = "txtTotalScore"
+        Me.txtTotalScore.ReadOnly = True
+        Me.txtTotalScore.Size = New System.Drawing.Size(116, 22)
+        Me.txtTotalScore.TabIndex = 10
         '
         'txtSixes
         '
@@ -765,8 +765,8 @@ Partial Class frmYahtzee
     Friend WithEvents btnTwos As System.Windows.Forms.Button
     Friend WithEvents btnAces As System.Windows.Forms.Button
     Friend WithEvents txtTotalUpperSection As System.Windows.Forms.TextBox
-    Friend WithEvents txtBonus As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox17 As System.Windows.Forms.TextBox
+    Friend WithEvents txtUpperSectionBonus As System.Windows.Forms.TextBox
+    Friend WithEvents txtTotalScore As System.Windows.Forms.TextBox
     Friend WithEvents txtSixes As System.Windows.Forms.TextBox
     Friend WithEvents txtFives As System.Windows.Forms.TextBox
     Friend WithEvents txtFours As System.Windows.Forms.TextBox
