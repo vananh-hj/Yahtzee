@@ -1,4 +1,8 @@
-﻿Public Class frmYahtzee
+﻿Imports System
+Imports System.IO
+Imports System.Reflection
+
+Public Class frmYahtzee
     'define variables for die rolls
     Dim randNumber As New Random
     Dim RollCount As Integer = 0
@@ -92,11 +96,11 @@
 
     Private Sub btnThrees_Click(sender As Object, e As EventArgs) Handles btnThrees.Click
         threesScored = True
-        ResetTallyAndRollCount()
         txtThrees.Text = CStr(3 * TallyArray(2))
         UpperSection += 3 * TallyArray(2)
         TotalScore += 3 * TallyArray(2)
         GrandTotal += 3 * TallyArray(2)
+        ResetTallyAndRollCount()
     End Sub
 
     Private Sub btnFours_Click(sender As Object, e As EventArgs) Handles btnFours.Click
@@ -288,6 +292,7 @@
             fiveSeqScored And fullHouseScored And chanceScored And
             yahtzeeScored Then
             ResetTallyAndRollCount()
+            HighScoreRecord()
             MessageBox.Show("Game Over")
         End If
     End Sub
@@ -343,10 +348,8 @@
     End Sub
 
     Private Sub HowToPlayToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles mnuHelpHowToPlay.Click
-        Dim pr As New Process
-        Dim Site As String = "http://grail.sourceforge.net/demo/yahtzee/rules.html"
-        pr.StartInfo.FileName = Site
-        pr.Start()
+        'Show window displaying frmRules with RTFTextBox
+        frmRules.ShowDialog()
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles tmrRoll.Tick
@@ -399,7 +402,26 @@
         Next
     End Sub
 
+    Sub HighScoreRecord()
+        Dim EndScore As StreamWriter
+        Dim strName As String
+        strName = InputBox("Enter your name: ")
+        EndScore = File.AppendText("txtHighScoreRecord.txt")
+        EndScore.WriteLine(strName & "         " & GrandTotal.ToString & "    ")
+        System.DateTime.Now.ToString("ddmmyyyy")
+    End Sub
+
+
     Private Sub mnuGameQuit_Click(sender As Object, e As EventArgs) Handles mnuGameQuit.Click
         Me.Close()
+    End Sub
+
+    Private Sub ShowHighScoresToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ShowHighScoresToolStripMenuItem.Click
+
+    End Sub
+
+    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
+        'Dim frmAbout As New AboutForm
+        frmAbout.ShowDialog()
     End Sub
 End Class

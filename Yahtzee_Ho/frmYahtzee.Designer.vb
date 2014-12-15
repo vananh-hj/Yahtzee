@@ -315,7 +315,7 @@ Partial Class frmYahtzee
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(5)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(5)
-        Me.GroupBox2.Size = New System.Drawing.Size(369, 456)
+        Me.GroupBox2.Size = New System.Drawing.Size(369, 435)
         Me.GroupBox2.TabIndex = 3
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Lower Section"
@@ -504,7 +504,7 @@ Partial Class frmYahtzee
         Me.chkRoll5.Checked = True
         Me.chkRoll5.CheckState = System.Windows.Forms.CheckState.Checked
         Me.chkRoll5.Enabled = False
-        Me.chkRoll5.Location = New System.Drawing.Point(523, 635)
+        Me.chkRoll5.Location = New System.Drawing.Point(540, 574)
         Me.chkRoll5.Name = "chkRoll5"
         Me.chkRoll5.Size = New System.Drawing.Size(48, 19)
         Me.chkRoll5.TabIndex = 101
@@ -518,7 +518,7 @@ Partial Class frmYahtzee
         Me.chkRoll4.Checked = True
         Me.chkRoll4.CheckState = System.Windows.Forms.CheckState.Checked
         Me.chkRoll4.Enabled = False
-        Me.chkRoll4.Location = New System.Drawing.Point(399, 635)
+        Me.chkRoll4.Location = New System.Drawing.Point(416, 574)
         Me.chkRoll4.Name = "chkRoll4"
         Me.chkRoll4.Size = New System.Drawing.Size(48, 19)
         Me.chkRoll4.TabIndex = 100
@@ -532,7 +532,7 @@ Partial Class frmYahtzee
         Me.chkRoll3.Checked = True
         Me.chkRoll3.CheckState = System.Windows.Forms.CheckState.Checked
         Me.chkRoll3.Enabled = False
-        Me.chkRoll3.Location = New System.Drawing.Point(275, 635)
+        Me.chkRoll3.Location = New System.Drawing.Point(292, 574)
         Me.chkRoll3.Name = "chkRoll3"
         Me.chkRoll3.Size = New System.Drawing.Size(48, 19)
         Me.chkRoll3.TabIndex = 99
@@ -546,7 +546,7 @@ Partial Class frmYahtzee
         Me.chkRoll2.Checked = True
         Me.chkRoll2.CheckState = System.Windows.Forms.CheckState.Checked
         Me.chkRoll2.Enabled = False
-        Me.chkRoll2.Location = New System.Drawing.Point(145, 635)
+        Me.chkRoll2.Location = New System.Drawing.Point(162, 574)
         Me.chkRoll2.Name = "chkRoll2"
         Me.chkRoll2.Size = New System.Drawing.Size(48, 19)
         Me.chkRoll2.TabIndex = 98
@@ -560,7 +560,7 @@ Partial Class frmYahtzee
         Me.chkRoll1.Checked = True
         Me.chkRoll1.CheckState = System.Windows.Forms.CheckState.Checked
         Me.chkRoll1.Enabled = False
-        Me.chkRoll1.Location = New System.Drawing.Point(22, 635)
+        Me.chkRoll1.Location = New System.Drawing.Point(39, 574)
         Me.chkRoll1.Name = "chkRoll1"
         Me.chkRoll1.Size = New System.Drawing.Size(48, 19)
         Me.chkRoll1.TabIndex = 97
@@ -569,7 +569,7 @@ Partial Class frmYahtzee
         '
         'btnRollEm
         '
-        Me.btnRollEm.Location = New System.Drawing.Point(684, 569)
+        Me.btnRollEm.Location = New System.Drawing.Point(701, 508)
         Me.btnRollEm.Margin = New System.Windows.Forms.Padding(5, 6, 5, 6)
         Me.btnRollEm.Name = "btnRollEm"
         Me.btnRollEm.Size = New System.Drawing.Size(114, 58)
@@ -581,7 +581,7 @@ Partial Class frmYahtzee
         '
         Me.pbxDie5.BackColor = System.Drawing.Color.White
         Me.pbxDie5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pbxDie5.Location = New System.Drawing.Point(527, 569)
+        Me.pbxDie5.Location = New System.Drawing.Point(544, 508)
         Me.pbxDie5.Margin = New System.Windows.Forms.Padding(5)
         Me.pbxDie5.Name = "pbxDie5"
         Me.pbxDie5.Size = New System.Drawing.Size(100, 50)
@@ -593,7 +593,7 @@ Partial Class frmYahtzee
         '
         Me.pbxDie4.BackColor = System.Drawing.Color.White
         Me.pbxDie4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pbxDie4.Location = New System.Drawing.Point(401, 569)
+        Me.pbxDie4.Location = New System.Drawing.Point(418, 508)
         Me.pbxDie4.Margin = New System.Windows.Forms.Padding(5)
         Me.pbxDie4.Name = "pbxDie4"
         Me.pbxDie4.Size = New System.Drawing.Size(100, 50)
@@ -605,7 +605,7 @@ Partial Class frmYahtzee
         '
         Me.pbxDie3.BackColor = System.Drawing.Color.White
         Me.pbxDie3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pbxDie3.Location = New System.Drawing.Point(275, 569)
+        Me.pbxDie3.Location = New System.Drawing.Point(292, 508)
         Me.pbxDie3.Margin = New System.Windows.Forms.Padding(5)
         Me.pbxDie3.Name = "pbxDie3"
         Me.pbxDie3.Size = New System.Drawing.Size(100, 50)
@@ -617,7 +617,7 @@ Partial Class frmYahtzee
         '
         Me.pbxDie2.BackColor = System.Drawing.Color.White
         Me.pbxDie2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pbxDie2.Location = New System.Drawing.Point(149, 569)
+        Me.pbxDie2.Location = New System.Drawing.Point(166, 508)
         Me.pbxDie2.Margin = New System.Windows.Forms.Padding(5)
         Me.pbxDie2.Name = "pbxDie2"
         Me.pbxDie2.Size = New System.Drawing.Size(100, 50)
@@ -629,7 +629,7 @@ Partial Class frmYahtzee
         '
         Me.pbxDie1.BackColor = System.Drawing.Color.White
         Me.pbxDie1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pbxDie1.Location = New System.Drawing.Point(23, 569)
+        Me.pbxDie1.Location = New System.Drawing.Point(40, 508)
         Me.pbxDie1.Margin = New System.Windows.Forms.Padding(5)
         Me.pbxDie1.Name = "pbxDie1"
         Me.pbxDie1.Size = New System.Drawing.Size(100, 50)
@@ -699,13 +699,13 @@ Partial Class frmYahtzee
         'mnuHelpHowToPlay
         '
         Me.mnuHelpHowToPlay.Name = "mnuHelpHowToPlay"
-        Me.mnuHelpHowToPlay.Size = New System.Drawing.Size(138, 22)
+        Me.mnuHelpHowToPlay.Size = New System.Drawing.Size(152, 22)
         Me.mnuHelpHowToPlay.Text = "How to Play"
         '
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.AboutToolStripMenuItem.Text = "About"
         '
         'tmrRoll
@@ -724,7 +724,7 @@ Partial Class frmYahtzee
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Navy
-        Me.ClientSize = New System.Drawing.Size(869, 699)
+        Me.ClientSize = New System.Drawing.Size(869, 627)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.chkRoll5)
         Me.Controls.Add(Me.chkRoll4)

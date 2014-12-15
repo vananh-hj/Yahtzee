@@ -1,0 +1,65 @@
+﻿					-How to Play Yahtzee-
+________________________________________________________________________________________________________
+
+This Yahtzee game is a 1 player game. It consists of 13 rounds. 
+In each round, you roll up to 5 dice with the Roll Em button. You can roll up to 3 times, 
+choosing which die to roll or keep by checking or unchecking the "Roll" checkboxes. 
+You can score after any "Roll Em" button click the roll. Once you score, a new round starts. 
+You score in one of 13 categories. You must score once in each category -- which means that 
+towards the end of the game you may have to settle for scoring zero in some categories. 
+The score is determined by a different rule for each category; see the section on Scoring below.
+The object of the game is to maximize your total score. The game ends once all 13 categories 
+have been scored. 
+
+					*Rolling the Dice*
+ To start with, you roll all dice by clicking on the Roll Em button. After you roll all dice, 
+you can either score the current roll, or re-roll any or all of the five dice. 
+To re-roll some of the dice, click on the toggle button underneath the die face you want to re-roll, 
+then click on the Roll Em 1/3 button. This will re-roll the selected dice, leaving the unselected 
+ones unchanged. 
+You can roll the dice a total of three times -- the initial roll (in which you must roll all the dice), 
+plus two re-rolls of any or all dice. After rolling three times, you must score the roll. 
+Once you've scored the roll, you roll all the dice again and repeat the process. 
+You continue until all 13 categories have been filled, at which time the game is over.
+
+					==Scoring==
+Once you have the dice face combination you want to score, you score the roll in one of the 13 
+categories. You do this by clicking on one of the radio buttons in either the Upper Section or 
+Lower Section box. Once a category has been scored, it is closed out for the rest of the game; 
+you cannot change a category's score once it's been set. Each category defines its own scoring rules, 
+as described below. 
+
+					*Upper Scores*
+
+In the upper scores, you total only the specified die face. 
+	When the game is over, if you score 63 or more upper points, you will get an Upper Section Bonus 
+of 35 points. The Total Score in this section is the sum of the Upper Section scores and Upper Section
+Bonus. 
+
+					*Lower Scores*
+
+In the lower scores, you score either a set amount (defined by the category), or zero if you don't 
+satisfy the category requirements. 
+
+					=3 and 4 of a Kind=
+For 3 of a Kind, you must have at least three of the same die faces. If so, you get the total all the die 
+faces and score that total. Similarly for 4 of a Kind, except that you must have 4 of the 5 die 
+faces the same. 
+					=Straights=
+Like in poker, a straight is a sequence of consecutive die faces; a small straight (sequence of 4) 
+is 4 consecutive faces and scores 30 points. A large straight (sequence of 5) is 5 consecutive faces
+is 40 points.  
+					=Full House=
+Again as in poker, a Full House is a roll where you have both a 3 of a kind, and a pair. Full houses 
+score 25 points. 
+					=Yahtzee=
+A Yahtzee is a 5 of a Kind (i.e. all the die faces are the same), and it scores 50 points. If you 
+roll more than one Yahtzee in a single game, you will earn a 100 point bonus for each additional 
+Yahtzee roll, provided that you have already scored a 50 in the Yahtzee category. If you have not 
+scored in the Yahtzee category, you will not receive a bonus. If you have scored a zero in the Yahtzee 
+category, you cannot receive any bonuses during the current game.
+
+					=Chance=
+Chance is the catch-all roll. You can roll anything and you simply total all the die faces values. 
+
+Grand Total is the sum of Upper and Lower Sections and any applicable bonuses.
