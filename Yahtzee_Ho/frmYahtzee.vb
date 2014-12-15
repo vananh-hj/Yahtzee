@@ -250,6 +250,15 @@
         btnSeq4.Enabled = Not fourSeqScored
         btnSeq5.Enabled = Not fiveSeqScored
         btnYahtzee.Enabled = Not yahtzeeScored
+
+        If acesScored And twosScored And threesScored And
+            foursScored And fivesScored And sixesScored And
+            threeOAKScored And fourOAKScored And fourSeqScored And
+            fiveSeqScored And fullHouseScored And chanceScored And
+            yahtzeeScored Then
+            ResetTallyAndRollCount()
+            MessageBox.Show("Game Over")
+        End If
     End Sub
 
     Sub DisableScoreButtons()
@@ -311,5 +320,48 @@
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles tmrRoll.Tick
        
+    End Sub
+
+    Private Sub ToolTipAces_Popup(sender As Object, e As PopupEventArgs) Handles ToolTipAces.Popup
+        Dim ToolTipAces As New ToolTip()
+        ToolTipAces.SetToolTip(btnAces, "hi")
+    End Sub
+
+    Private Sub NewGameToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles mnuGameNewGame.Click
+        'clear out old game and prepare for new game
+        'Array to clear out output boxes
+        Dim outputTextBoxes As TextBox() = {txtAces, txtTwos, txtThrees, txtFours, txtFives, txtFours,
+                                         txtFives, txtSixes, txt3OAK, txt4OAK, txtFullHouse, txtGrandTotal, txtBonus,
+                                         txtSeq4, txtSeq5, txtYahtzee, txtChance, txtTotalLowerScore,
+                                        txtTotalUpperSection, txtYtzBonus}
+        For k = 0 To outputTextBoxes.Length - 1
+            outputTextBoxes(k).Text() = ""
+        Next
+        'disable all roll checkboxes and have them checked to roll
+        DisableChkBoxes()
+        DisableScoreButtons()
+        'clear out scored button memory
+        acesScored = False
+        twosScored = False
+        threesScored = False
+        foursScored = False
+        fivesScored = False
+        sixesScored = False
+        threeOAKScored = False
+        fourOAKScored = False
+        chanceScored = False
+        fullHouseScored = False
+        fourSeqScored = False
+        fiveSeqScored = False
+        yahtzeeScored = False
+        ' Declare array variable to reset dice images to 1
+        Dim DieImageArray() As PictureBox = {pbxDie1, pbxDie2, pbxDie3, pbxDie4, pbxDie5}
+        For dieNum = 0 To 4
+            DieImageArray(dieNum).Image = imlDiceList.Images(0)
+        Next
+    End Sub
+
+    Private Sub mnuGameQuit_Click(sender As Object, e As EventArgs) Handles mnuGameQuit.Click
+        Me.Close()
     End Sub
 End Class

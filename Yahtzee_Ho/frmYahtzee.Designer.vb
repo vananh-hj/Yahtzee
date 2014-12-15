@@ -64,12 +64,6 @@ Partial Class frmYahtzee
         Me.txt4OAK = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txt3OAK = New System.Windows.Forms.TextBox()
-        Me.lblTotal = New System.Windows.Forms.Label()
-        Me.lblDie5 = New System.Windows.Forms.Label()
-        Me.lblDie4 = New System.Windows.Forms.Label()
-        Me.lblDie3 = New System.Windows.Forms.Label()
-        Me.lblDie2 = New System.Windows.Forms.Label()
-        Me.lblDie = New System.Windows.Forms.Label()
         Me.chkRoll5 = New System.Windows.Forms.CheckBox()
         Me.chkRoll4 = New System.Windows.Forms.CheckBox()
         Me.chkRoll3 = New System.Windows.Forms.CheckBox()
@@ -84,14 +78,15 @@ Partial Class frmYahtzee
         Me.imlDiceList = New System.Windows.Forms.ImageList(Me.components)
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.GameToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.NewGameToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuGameNewGame = New System.Windows.Forms.ToolStripMenuItem()
         Me.UndoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ShowHighScoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.QuitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuGameQuit = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuHelpHowToPlay = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.tmrRoll = New System.Windows.Forms.Timer(Me.components)
+        Me.ToolTipAces = New System.Windows.Forms.ToolTip(Me.components)
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.pbxDie5, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -125,9 +120,9 @@ Partial Class frmYahtzee
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(35, 47)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(5)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(5)
         Me.GroupBox1.Size = New System.Drawing.Size(383, 415)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
@@ -317,9 +312,9 @@ Partial Class frmYahtzee
         Me.GroupBox2.Controls.Add(Me.txt3OAK)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.Location = New System.Drawing.Point(460, 47)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(5)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(5)
         Me.GroupBox2.Size = New System.Drawing.Size(369, 456)
         Me.GroupBox2.TabIndex = 3
         Me.GroupBox2.TabStop = False
@@ -502,66 +497,6 @@ Partial Class frmYahtzee
         Me.txt3OAK.Size = New System.Drawing.Size(116, 22)
         Me.txt3OAK.TabIndex = 5
         '
-        'lblTotal
-        '
-        Me.lblTotal.AutoSize = True
-        Me.lblTotal.BackColor = System.Drawing.Color.White
-        Me.lblTotal.Location = New System.Drawing.Point(709, 535)
-        Me.lblTotal.Name = "lblTotal"
-        Me.lblTotal.Size = New System.Drawing.Size(34, 15)
-        Me.lblTotal.TabIndex = 107
-        Me.lblTotal.Text = "Total"
-        '
-        'lblDie5
-        '
-        Me.lblDie5.AutoSize = True
-        Me.lblDie5.BackColor = System.Drawing.Color.White
-        Me.lblDie5.Location = New System.Drawing.Point(534, 535)
-        Me.lblDie5.Name = "lblDie5"
-        Me.lblDie5.Size = New System.Drawing.Size(45, 15)
-        Me.lblDie5.TabIndex = 106
-        Me.lblDie5.Text = "Label1"
-        '
-        'lblDie4
-        '
-        Me.lblDie4.AutoSize = True
-        Me.lblDie4.BackColor = System.Drawing.Color.White
-        Me.lblDie4.Location = New System.Drawing.Point(440, 535)
-        Me.lblDie4.Name = "lblDie4"
-        Me.lblDie4.Size = New System.Drawing.Size(45, 15)
-        Me.lblDie4.TabIndex = 105
-        Me.lblDie4.Text = "Label1"
-        '
-        'lblDie3
-        '
-        Me.lblDie3.AutoSize = True
-        Me.lblDie3.BackColor = System.Drawing.Color.White
-        Me.lblDie3.Location = New System.Drawing.Point(318, 535)
-        Me.lblDie3.Name = "lblDie3"
-        Me.lblDie3.Size = New System.Drawing.Size(45, 15)
-        Me.lblDie3.TabIndex = 104
-        Me.lblDie3.Text = "Label1"
-        '
-        'lblDie2
-        '
-        Me.lblDie2.AutoSize = True
-        Me.lblDie2.BackColor = System.Drawing.Color.White
-        Me.lblDie2.Location = New System.Drawing.Point(191, 535)
-        Me.lblDie2.Name = "lblDie2"
-        Me.lblDie2.Size = New System.Drawing.Size(45, 15)
-        Me.lblDie2.TabIndex = 103
-        Me.lblDie2.Text = "Label1"
-        '
-        'lblDie
-        '
-        Me.lblDie.AutoSize = True
-        Me.lblDie.BackColor = System.Drawing.Color.White
-        Me.lblDie.Location = New System.Drawing.Point(52, 535)
-        Me.lblDie.Name = "lblDie"
-        Me.lblDie.Size = New System.Drawing.Size(45, 15)
-        Me.lblDie.TabIndex = 102
-        Me.lblDie.Text = "Label1"
-        '
         'chkRoll5
         '
         Me.chkRoll5.AutoSize = True
@@ -647,7 +582,7 @@ Partial Class frmYahtzee
         Me.pbxDie5.BackColor = System.Drawing.Color.White
         Me.pbxDie5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.pbxDie5.Location = New System.Drawing.Point(527, 569)
-        Me.pbxDie5.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.pbxDie5.Margin = New System.Windows.Forms.Padding(5)
         Me.pbxDie5.Name = "pbxDie5"
         Me.pbxDie5.Size = New System.Drawing.Size(100, 50)
         Me.pbxDie5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -659,7 +594,7 @@ Partial Class frmYahtzee
         Me.pbxDie4.BackColor = System.Drawing.Color.White
         Me.pbxDie4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.pbxDie4.Location = New System.Drawing.Point(401, 569)
-        Me.pbxDie4.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.pbxDie4.Margin = New System.Windows.Forms.Padding(5)
         Me.pbxDie4.Name = "pbxDie4"
         Me.pbxDie4.Size = New System.Drawing.Size(100, 50)
         Me.pbxDie4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -671,7 +606,7 @@ Partial Class frmYahtzee
         Me.pbxDie3.BackColor = System.Drawing.Color.White
         Me.pbxDie3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.pbxDie3.Location = New System.Drawing.Point(275, 569)
-        Me.pbxDie3.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.pbxDie3.Margin = New System.Windows.Forms.Padding(5)
         Me.pbxDie3.Name = "pbxDie3"
         Me.pbxDie3.Size = New System.Drawing.Size(100, 50)
         Me.pbxDie3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -683,7 +618,7 @@ Partial Class frmYahtzee
         Me.pbxDie2.BackColor = System.Drawing.Color.White
         Me.pbxDie2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.pbxDie2.Location = New System.Drawing.Point(149, 569)
-        Me.pbxDie2.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.pbxDie2.Margin = New System.Windows.Forms.Padding(5)
         Me.pbxDie2.Name = "pbxDie2"
         Me.pbxDie2.Size = New System.Drawing.Size(100, 50)
         Me.pbxDie2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -695,7 +630,7 @@ Partial Class frmYahtzee
         Me.pbxDie1.BackColor = System.Drawing.Color.White
         Me.pbxDie1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.pbxDie1.Location = New System.Drawing.Point(23, 569)
-        Me.pbxDie1.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.pbxDie1.Margin = New System.Windows.Forms.Padding(5)
         Me.pbxDie1.Name = "pbxDie1"
         Me.pbxDie1.Size = New System.Drawing.Size(100, 50)
         Me.pbxDie1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -725,16 +660,16 @@ Partial Class frmYahtzee
         '
         'GameToolStripMenuItem
         '
-        Me.GameToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewGameToolStripMenuItem, Me.UndoToolStripMenuItem, Me.ShowHighScoresToolStripMenuItem, Me.QuitToolStripMenuItem})
+        Me.GameToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuGameNewGame, Me.UndoToolStripMenuItem, Me.ShowHighScoresToolStripMenuItem, Me.mnuGameQuit})
         Me.GameToolStripMenuItem.Name = "GameToolStripMenuItem"
         Me.GameToolStripMenuItem.Size = New System.Drawing.Size(50, 20)
         Me.GameToolStripMenuItem.Text = "Game"
         '
-        'NewGameToolStripMenuItem
+        'mnuGameNewGame
         '
-        Me.NewGameToolStripMenuItem.Name = "NewGameToolStripMenuItem"
-        Me.NewGameToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
-        Me.NewGameToolStripMenuItem.Text = "New Game"
+        Me.mnuGameNewGame.Name = "mnuGameNewGame"
+        Me.mnuGameNewGame.Size = New System.Drawing.Size(169, 22)
+        Me.mnuGameNewGame.Text = "New Game"
         '
         'UndoToolStripMenuItem
         '
@@ -748,11 +683,11 @@ Partial Class frmYahtzee
         Me.ShowHighScoresToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
         Me.ShowHighScoresToolStripMenuItem.Text = "Show High Scores"
         '
-        'QuitToolStripMenuItem
+        'mnuGameQuit
         '
-        Me.QuitToolStripMenuItem.Name = "QuitToolStripMenuItem"
-        Me.QuitToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
-        Me.QuitToolStripMenuItem.Text = "Quit"
+        Me.mnuGameQuit.Name = "mnuGameQuit"
+        Me.mnuGameQuit.Size = New System.Drawing.Size(169, 22)
+        Me.mnuGameQuit.Text = "Quit"
         '
         'HelpToolStripMenuItem
         '
@@ -764,17 +699,25 @@ Partial Class frmYahtzee
         'mnuHelpHowToPlay
         '
         Me.mnuHelpHowToPlay.Name = "mnuHelpHowToPlay"
-        Me.mnuHelpHowToPlay.Size = New System.Drawing.Size(152, 22)
+        Me.mnuHelpHowToPlay.Size = New System.Drawing.Size(138, 22)
         Me.mnuHelpHowToPlay.Text = "How to Play"
         '
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
         Me.AboutToolStripMenuItem.Text = "About"
         '
         'tmrRoll
         '
+        '
+        'ToolTipAces
+        '
+        Me.ToolTipAces.AutoPopDelay = 5000
+        Me.ToolTipAces.InitialDelay = 500
+        Me.ToolTipAces.ReshowDelay = 500
+        Me.ToolTipAces.ShowAlways = True
+        Me.ToolTipAces.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
         '
         'frmYahtzee
         '
@@ -783,12 +726,6 @@ Partial Class frmYahtzee
         Me.BackColor = System.Drawing.Color.Navy
         Me.ClientSize = New System.Drawing.Size(869, 699)
         Me.Controls.Add(Me.MenuStrip1)
-        Me.Controls.Add(Me.lblTotal)
-        Me.Controls.Add(Me.lblDie5)
-        Me.Controls.Add(Me.lblDie4)
-        Me.Controls.Add(Me.lblDie3)
-        Me.Controls.Add(Me.lblDie2)
-        Me.Controls.Add(Me.lblDie)
         Me.Controls.Add(Me.chkRoll5)
         Me.Controls.Add(Me.chkRoll4)
         Me.Controls.Add(Me.chkRoll3)
@@ -860,12 +797,6 @@ Partial Class frmYahtzee
     Friend WithEvents txt4OAK As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents txt3OAK As System.Windows.Forms.TextBox
-    Friend WithEvents lblTotal As System.Windows.Forms.Label
-    Friend WithEvents lblDie5 As System.Windows.Forms.Label
-    Friend WithEvents lblDie4 As System.Windows.Forms.Label
-    Friend WithEvents lblDie3 As System.Windows.Forms.Label
-    Friend WithEvents lblDie2 As System.Windows.Forms.Label
-    Friend WithEvents lblDie As System.Windows.Forms.Label
     Friend WithEvents chkRoll5 As System.Windows.Forms.CheckBox
     Friend WithEvents chkRoll4 As System.Windows.Forms.CheckBox
     Friend WithEvents chkRoll3 As System.Windows.Forms.CheckBox
@@ -880,10 +811,10 @@ Partial Class frmYahtzee
     Friend WithEvents imlDiceList As System.Windows.Forms.ImageList
     Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
     Friend WithEvents GameToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents NewGameToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents mnuGameNewGame As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents UndoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ShowHighScoresToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents QuitToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents mnuGameQuit As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents HelpToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents mnuHelpHowToPlay As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AboutToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -892,4 +823,5 @@ Partial Class frmYahtzee
 
     End Sub
     Friend WithEvents tmrRoll As System.Windows.Forms.Timer
+    Friend WithEvents ToolTipAces As System.Windows.Forms.ToolTip
 End Class
