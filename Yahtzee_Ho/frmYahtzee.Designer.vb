@@ -89,9 +89,9 @@ Partial Class frmYahtzee
         Me.ShowHighScoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.QuitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.HowToPlayToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuHelpHowToPlay = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.lstScores = New System.Windows.Forms.ListBox()
+        Me.tmrRoll = New System.Windows.Forms.Timer(Me.components)
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.pbxDie5, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -123,11 +123,12 @@ Partial Class frmYahtzee
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Location = New System.Drawing.Point(48, 41)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
+        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox1.Location = New System.Drawing.Point(35, 47)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox1.Size = New System.Drawing.Size(328, 360)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.GroupBox1.Size = New System.Drawing.Size(383, 415)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Upper Section"
@@ -135,9 +136,9 @@ Partial Class frmYahtzee
         'btnSixes
         '
         Me.btnSixes.Enabled = False
-        Me.btnSixes.Location = New System.Drawing.Point(27, 207)
+        Me.btnSixes.Location = New System.Drawing.Point(31, 239)
         Me.btnSixes.Name = "btnSixes"
-        Me.btnSixes.Size = New System.Drawing.Size(75, 23)
+        Me.btnSixes.Size = New System.Drawing.Size(87, 25)
         Me.btnSixes.TabIndex = 18
         Me.btnSixes.Text = "Sixes"
         Me.btnSixes.UseVisualStyleBackColor = True
@@ -145,9 +146,9 @@ Partial Class frmYahtzee
         'btnFives
         '
         Me.btnFives.Enabled = False
-        Me.btnFives.Location = New System.Drawing.Point(27, 174)
+        Me.btnFives.Location = New System.Drawing.Point(31, 201)
         Me.btnFives.Name = "btnFives"
-        Me.btnFives.Size = New System.Drawing.Size(75, 23)
+        Me.btnFives.Size = New System.Drawing.Size(87, 25)
         Me.btnFives.TabIndex = 17
         Me.btnFives.Text = "Fives"
         Me.btnFives.UseVisualStyleBackColor = True
@@ -155,9 +156,9 @@ Partial Class frmYahtzee
         'btnFours
         '
         Me.btnFours.Enabled = False
-        Me.btnFours.Location = New System.Drawing.Point(27, 141)
+        Me.btnFours.Location = New System.Drawing.Point(31, 163)
         Me.btnFours.Name = "btnFours"
-        Me.btnFours.Size = New System.Drawing.Size(75, 23)
+        Me.btnFours.Size = New System.Drawing.Size(87, 25)
         Me.btnFours.TabIndex = 16
         Me.btnFours.Text = "Fours"
         Me.btnFours.UseVisualStyleBackColor = True
@@ -165,9 +166,9 @@ Partial Class frmYahtzee
         'btnThrees
         '
         Me.btnThrees.Enabled = False
-        Me.btnThrees.Location = New System.Drawing.Point(27, 106)
+        Me.btnThrees.Location = New System.Drawing.Point(31, 122)
         Me.btnThrees.Name = "btnThrees"
-        Me.btnThrees.Size = New System.Drawing.Size(75, 23)
+        Me.btnThrees.Size = New System.Drawing.Size(87, 25)
         Me.btnThrees.TabIndex = 15
         Me.btnThrees.Text = "Threes"
         Me.btnThrees.UseVisualStyleBackColor = True
@@ -175,9 +176,9 @@ Partial Class frmYahtzee
         'btnTwos
         '
         Me.btnTwos.Enabled = False
-        Me.btnTwos.Location = New System.Drawing.Point(27, 75)
+        Me.btnTwos.Location = New System.Drawing.Point(31, 85)
         Me.btnTwos.Name = "btnTwos"
-        Me.btnTwos.Size = New System.Drawing.Size(75, 23)
+        Me.btnTwos.Size = New System.Drawing.Size(87, 25)
         Me.btnTwos.TabIndex = 14
         Me.btnTwos.Text = "Twos"
         Me.btnTwos.UseVisualStyleBackColor = True
@@ -185,109 +186,109 @@ Partial Class frmYahtzee
         'btnAces
         '
         Me.btnAces.Enabled = False
-        Me.btnAces.Location = New System.Drawing.Point(27, 41)
+        Me.btnAces.Location = New System.Drawing.Point(31, 47)
         Me.btnAces.Name = "btnAces"
-        Me.btnAces.Size = New System.Drawing.Size(75, 23)
+        Me.btnAces.Size = New System.Drawing.Size(87, 25)
         Me.btnAces.TabIndex = 13
         Me.btnAces.Text = "Aces"
         Me.btnAces.UseVisualStyleBackColor = True
         '
         'txtTotalUpperSection
         '
-        Me.txtTotalUpperSection.Location = New System.Drawing.Point(182, 306)
+        Me.txtTotalUpperSection.Location = New System.Drawing.Point(212, 353)
         Me.txtTotalUpperSection.Name = "txtTotalUpperSection"
         Me.txtTotalUpperSection.ReadOnly = True
-        Me.txtTotalUpperSection.Size = New System.Drawing.Size(100, 20)
+        Me.txtTotalUpperSection.Size = New System.Drawing.Size(116, 22)
         Me.txtTotalUpperSection.TabIndex = 12
         '
         'txtBonus
         '
-        Me.txtBonus.Location = New System.Drawing.Point(182, 273)
+        Me.txtBonus.Location = New System.Drawing.Point(212, 315)
         Me.txtBonus.Name = "txtBonus"
         Me.txtBonus.ReadOnly = True
-        Me.txtBonus.Size = New System.Drawing.Size(100, 20)
+        Me.txtBonus.Size = New System.Drawing.Size(116, 22)
         Me.txtBonus.TabIndex = 11
         '
         'TextBox17
         '
-        Me.TextBox17.Location = New System.Drawing.Point(182, 240)
+        Me.TextBox17.Location = New System.Drawing.Point(212, 277)
         Me.TextBox17.Name = "TextBox17"
         Me.TextBox17.ReadOnly = True
-        Me.TextBox17.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox17.Size = New System.Drawing.Size(116, 22)
         Me.TextBox17.TabIndex = 10
         '
         'txtSixes
         '
-        Me.txtSixes.Location = New System.Drawing.Point(182, 207)
+        Me.txtSixes.Location = New System.Drawing.Point(212, 239)
         Me.txtSixes.Name = "txtSixes"
         Me.txtSixes.ReadOnly = True
-        Me.txtSixes.Size = New System.Drawing.Size(100, 20)
+        Me.txtSixes.Size = New System.Drawing.Size(116, 22)
         Me.txtSixes.TabIndex = 9
         '
         'txtFives
         '
-        Me.txtFives.Location = New System.Drawing.Point(182, 174)
+        Me.txtFives.Location = New System.Drawing.Point(212, 201)
         Me.txtFives.Name = "txtFives"
         Me.txtFives.ReadOnly = True
-        Me.txtFives.Size = New System.Drawing.Size(100, 20)
+        Me.txtFives.Size = New System.Drawing.Size(116, 22)
         Me.txtFives.TabIndex = 8
         '
         'txtFours
         '
-        Me.txtFours.Location = New System.Drawing.Point(182, 141)
+        Me.txtFours.Location = New System.Drawing.Point(212, 163)
         Me.txtFours.Name = "txtFours"
         Me.txtFours.ReadOnly = True
-        Me.txtFours.Size = New System.Drawing.Size(100, 20)
+        Me.txtFours.Size = New System.Drawing.Size(116, 22)
         Me.txtFours.TabIndex = 7
         '
         'txtThrees
         '
-        Me.txtThrees.Location = New System.Drawing.Point(182, 108)
+        Me.txtThrees.Location = New System.Drawing.Point(212, 125)
         Me.txtThrees.Name = "txtThrees"
         Me.txtThrees.ReadOnly = True
-        Me.txtThrees.Size = New System.Drawing.Size(100, 20)
+        Me.txtThrees.Size = New System.Drawing.Size(116, 22)
         Me.txtThrees.TabIndex = 6
         '
         'txtTwos
         '
-        Me.txtTwos.Location = New System.Drawing.Point(182, 75)
+        Me.txtTwos.Location = New System.Drawing.Point(212, 85)
         Me.txtTwos.Name = "txtTwos"
         Me.txtTwos.ReadOnly = True
-        Me.txtTwos.Size = New System.Drawing.Size(100, 20)
+        Me.txtTwos.Size = New System.Drawing.Size(116, 22)
         Me.txtTwos.TabIndex = 5
         '
         'txtAces
         '
-        Me.txtAces.Location = New System.Drawing.Point(182, 42)
+        Me.txtAces.Location = New System.Drawing.Point(212, 48)
         Me.txtAces.Name = "txtAces"
         Me.txtAces.ReadOnly = True
-        Me.txtAces.Size = New System.Drawing.Size(100, 20)
+        Me.txtAces.Size = New System.Drawing.Size(116, 22)
         Me.txtAces.TabIndex = 4
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(22, 309)
+        Me.Label3.Location = New System.Drawing.Point(26, 355)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(116, 13)
+        Me.Label3.Size = New System.Drawing.Size(143, 16)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Total of upper section: "
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(27, 278)
+        Me.Label2.Location = New System.Drawing.Point(31, 321)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(40, 13)
+        Me.Label2.Size = New System.Drawing.Size(49, 16)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Bonus:"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(27, 247)
+        Me.Label1.Location = New System.Drawing.Point(31, 285)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(63, 13)
+        Me.Label1.Size = New System.Drawing.Size(79, 16)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Total score:"
         '
@@ -314,11 +315,12 @@ Partial Class frmYahtzee
         Me.GroupBox2.Controls.Add(Me.txt4OAK)
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Controls.Add(Me.txt3OAK)
-        Me.GroupBox2.Location = New System.Drawing.Point(405, 50)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
+        Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox2.Location = New System.Drawing.Point(460, 47)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox2.Size = New System.Drawing.Size(316, 395)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.GroupBox2.Size = New System.Drawing.Size(369, 456)
         Me.GroupBox2.TabIndex = 3
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Lower Section"
@@ -326,9 +328,9 @@ Partial Class frmYahtzee
         'btnChance
         '
         Me.btnChance.Enabled = False
-        Me.btnChance.Location = New System.Drawing.Point(12, 239)
+        Me.btnChance.Location = New System.Drawing.Point(14, 276)
         Me.btnChance.Name = "btnChance"
-        Me.btnChance.Size = New System.Drawing.Size(112, 23)
+        Me.btnChance.Size = New System.Drawing.Size(131, 25)
         Me.btnChance.TabIndex = 23
         Me.btnChance.Text = "Chance"
         Me.btnChance.UseVisualStyleBackColor = True
@@ -336,9 +338,9 @@ Partial Class frmYahtzee
         'btnYahtzee
         '
         Me.btnYahtzee.Enabled = False
-        Me.btnYahtzee.Location = New System.Drawing.Point(12, 206)
+        Me.btnYahtzee.Location = New System.Drawing.Point(14, 238)
         Me.btnYahtzee.Name = "btnYahtzee"
-        Me.btnYahtzee.Size = New System.Drawing.Size(112, 23)
+        Me.btnYahtzee.Size = New System.Drawing.Size(131, 25)
         Me.btnYahtzee.TabIndex = 22
         Me.btnYahtzee.Text = "Yahtzee"
         Me.btnYahtzee.UseVisualStyleBackColor = True
@@ -346,9 +348,9 @@ Partial Class frmYahtzee
         'btnSeq5
         '
         Me.btnSeq5.Enabled = False
-        Me.btnSeq5.Location = New System.Drawing.Point(12, 171)
+        Me.btnSeq5.Location = New System.Drawing.Point(14, 197)
         Me.btnSeq5.Name = "btnSeq5"
-        Me.btnSeq5.Size = New System.Drawing.Size(112, 23)
+        Me.btnSeq5.Size = New System.Drawing.Size(131, 25)
         Me.btnSeq5.TabIndex = 21
         Me.btnSeq5.Text = "Sequence of 5"
         Me.btnSeq5.UseVisualStyleBackColor = True
@@ -356,9 +358,9 @@ Partial Class frmYahtzee
         'btnSeq4
         '
         Me.btnSeq4.Enabled = False
-        Me.btnSeq4.Location = New System.Drawing.Point(12, 141)
+        Me.btnSeq4.Location = New System.Drawing.Point(14, 163)
         Me.btnSeq4.Name = "btnSeq4"
-        Me.btnSeq4.Size = New System.Drawing.Size(112, 23)
+        Me.btnSeq4.Size = New System.Drawing.Size(131, 25)
         Me.btnSeq4.TabIndex = 20
         Me.btnSeq4.Text = "Sequence of 4"
         Me.btnSeq4.UseVisualStyleBackColor = True
@@ -366,9 +368,9 @@ Partial Class frmYahtzee
         'btnFullHouse
         '
         Me.btnFullHouse.Enabled = False
-        Me.btnFullHouse.Location = New System.Drawing.Point(12, 109)
+        Me.btnFullHouse.Location = New System.Drawing.Point(14, 126)
         Me.btnFullHouse.Name = "btnFullHouse"
-        Me.btnFullHouse.Size = New System.Drawing.Size(112, 23)
+        Me.btnFullHouse.Size = New System.Drawing.Size(131, 25)
         Me.btnFullHouse.TabIndex = 19
         Me.btnFullHouse.Text = "Full House"
         Me.btnFullHouse.UseVisualStyleBackColor = True
@@ -376,9 +378,9 @@ Partial Class frmYahtzee
         'btn4OAK
         '
         Me.btn4OAK.Enabled = False
-        Me.btn4OAK.Location = New System.Drawing.Point(12, 73)
+        Me.btn4OAK.Location = New System.Drawing.Point(14, 84)
         Me.btn4OAK.Name = "btn4OAK"
-        Me.btn4OAK.Size = New System.Drawing.Size(112, 23)
+        Me.btn4OAK.Size = New System.Drawing.Size(131, 25)
         Me.btn4OAK.TabIndex = 18
         Me.btn4OAK.Text = "4 of a kind"
         Me.btn4OAK.UseVisualStyleBackColor = True
@@ -386,9 +388,9 @@ Partial Class frmYahtzee
         'btn3OAK
         '
         Me.btn3OAK.Enabled = False
-        Me.btn3OAK.Location = New System.Drawing.Point(12, 39)
+        Me.btn3OAK.Location = New System.Drawing.Point(14, 45)
         Me.btn3OAK.Name = "btn3OAK"
-        Me.btn3OAK.Size = New System.Drawing.Size(112, 23)
+        Me.btn3OAK.Size = New System.Drawing.Size(131, 25)
         Me.btn3OAK.TabIndex = 17
         Me.btn3OAK.Text = "3 of a kind"
         Me.btn3OAK.UseVisualStyleBackColor = True
@@ -396,117 +398,117 @@ Partial Class frmYahtzee
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(12, 338)
+        Me.Label6.Location = New System.Drawing.Point(14, 390)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(69, 13)
+        Me.Label6.Size = New System.Drawing.Size(85, 16)
         Me.Label6.TabIndex = 16
         Me.Label6.Text = "Grand Total: "
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(12, 308)
+        Me.Label5.Location = New System.Drawing.Point(14, 355)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(106, 13)
+        Me.Label5.Size = New System.Drawing.Size(131, 16)
         Me.Label5.TabIndex = 15
         Me.Label5.Text = "Total of lower score: "
         '
         'txtGrandTotal
         '
-        Me.txtGrandTotal.Location = New System.Drawing.Point(142, 338)
+        Me.txtGrandTotal.Location = New System.Drawing.Point(198, 390)
         Me.txtGrandTotal.Name = "txtGrandTotal"
         Me.txtGrandTotal.ReadOnly = True
-        Me.txtGrandTotal.Size = New System.Drawing.Size(100, 20)
+        Me.txtGrandTotal.Size = New System.Drawing.Size(116, 22)
         Me.txtGrandTotal.TabIndex = 14
         '
         'txtTotalLowerScore
         '
-        Me.txtTotalLowerScore.Location = New System.Drawing.Point(142, 305)
+        Me.txtTotalLowerScore.Location = New System.Drawing.Point(198, 352)
         Me.txtTotalLowerScore.Name = "txtTotalLowerScore"
         Me.txtTotalLowerScore.ReadOnly = True
-        Me.txtTotalLowerScore.Size = New System.Drawing.Size(100, 20)
+        Me.txtTotalLowerScore.Size = New System.Drawing.Size(116, 22)
         Me.txtTotalLowerScore.TabIndex = 13
         '
         'txtYtzBonus
         '
-        Me.txtYtzBonus.Location = New System.Drawing.Point(142, 272)
+        Me.txtYtzBonus.Location = New System.Drawing.Point(198, 314)
         Me.txtYtzBonus.Name = "txtYtzBonus"
         Me.txtYtzBonus.ReadOnly = True
-        Me.txtYtzBonus.Size = New System.Drawing.Size(100, 20)
+        Me.txtYtzBonus.Size = New System.Drawing.Size(116, 22)
         Me.txtYtzBonus.TabIndex = 12
         '
         'txtChance
         '
-        Me.txtChance.Location = New System.Drawing.Point(142, 239)
+        Me.txtChance.Location = New System.Drawing.Point(198, 276)
         Me.txtChance.Name = "txtChance"
         Me.txtChance.ReadOnly = True
-        Me.txtChance.Size = New System.Drawing.Size(100, 20)
+        Me.txtChance.Size = New System.Drawing.Size(116, 22)
         Me.txtChance.TabIndex = 11
         '
         'txtYahtzee
         '
-        Me.txtYahtzee.Location = New System.Drawing.Point(142, 206)
+        Me.txtYahtzee.Location = New System.Drawing.Point(198, 238)
         Me.txtYahtzee.Name = "txtYahtzee"
         Me.txtYahtzee.ReadOnly = True
-        Me.txtYahtzee.Size = New System.Drawing.Size(100, 20)
+        Me.txtYahtzee.Size = New System.Drawing.Size(116, 22)
         Me.txtYahtzee.TabIndex = 10
         '
         'txtSeq5
         '
-        Me.txtSeq5.Location = New System.Drawing.Point(142, 173)
+        Me.txtSeq5.Location = New System.Drawing.Point(198, 200)
         Me.txtSeq5.Name = "txtSeq5"
         Me.txtSeq5.ReadOnly = True
-        Me.txtSeq5.Size = New System.Drawing.Size(100, 20)
+        Me.txtSeq5.Size = New System.Drawing.Size(116, 22)
         Me.txtSeq5.TabIndex = 9
         '
         'txtSeq4
         '
-        Me.txtSeq4.Location = New System.Drawing.Point(142, 140)
+        Me.txtSeq4.Location = New System.Drawing.Point(198, 160)
         Me.txtSeq4.Name = "txtSeq4"
         Me.txtSeq4.ReadOnly = True
-        Me.txtSeq4.Size = New System.Drawing.Size(100, 20)
+        Me.txtSeq4.Size = New System.Drawing.Size(116, 22)
         Me.txtSeq4.TabIndex = 8
         '
         'txtFullHouse
         '
-        Me.txtFullHouse.Location = New System.Drawing.Point(142, 107)
+        Me.txtFullHouse.Location = New System.Drawing.Point(198, 123)
         Me.txtFullHouse.Name = "txtFullHouse"
         Me.txtFullHouse.ReadOnly = True
-        Me.txtFullHouse.Size = New System.Drawing.Size(100, 20)
+        Me.txtFullHouse.Size = New System.Drawing.Size(116, 22)
         Me.txtFullHouse.TabIndex = 7
         '
         'txt4OAK
         '
-        Me.txt4OAK.Location = New System.Drawing.Point(142, 74)
+        Me.txt4OAK.Location = New System.Drawing.Point(198, 85)
         Me.txt4OAK.Name = "txt4OAK"
         Me.txt4OAK.ReadOnly = True
-        Me.txt4OAK.Size = New System.Drawing.Size(100, 20)
+        Me.txt4OAK.Size = New System.Drawing.Size(116, 22)
         Me.txt4OAK.TabIndex = 6
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(12, 279)
+        Me.Label4.Location = New System.Drawing.Point(14, 322)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(79, 13)
+        Me.Label4.Size = New System.Drawing.Size(98, 16)
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "Yahtzee Bonus"
         '
         'txt3OAK
         '
-        Me.txt3OAK.Location = New System.Drawing.Point(142, 41)
+        Me.txt3OAK.Location = New System.Drawing.Point(198, 47)
         Me.txt3OAK.Name = "txt3OAK"
         Me.txt3OAK.ReadOnly = True
-        Me.txt3OAK.Size = New System.Drawing.Size(100, 20)
+        Me.txt3OAK.Size = New System.Drawing.Size(116, 22)
         Me.txt3OAK.TabIndex = 5
         '
         'lblTotal
         '
         Me.lblTotal.AutoSize = True
         Me.lblTotal.BackColor = System.Drawing.Color.White
-        Me.lblTotal.Location = New System.Drawing.Point(608, 465)
+        Me.lblTotal.Location = New System.Drawing.Point(709, 535)
         Me.lblTotal.Name = "lblTotal"
-        Me.lblTotal.Size = New System.Drawing.Size(31, 13)
+        Me.lblTotal.Size = New System.Drawing.Size(34, 15)
         Me.lblTotal.TabIndex = 107
         Me.lblTotal.Text = "Total"
         '
@@ -514,9 +516,9 @@ Partial Class frmYahtzee
         '
         Me.lblDie5.AutoSize = True
         Me.lblDie5.BackColor = System.Drawing.Color.White
-        Me.lblDie5.Location = New System.Drawing.Point(466, 473)
+        Me.lblDie5.Location = New System.Drawing.Point(534, 535)
         Me.lblDie5.Name = "lblDie5"
-        Me.lblDie5.Size = New System.Drawing.Size(39, 13)
+        Me.lblDie5.Size = New System.Drawing.Size(45, 15)
         Me.lblDie5.TabIndex = 106
         Me.lblDie5.Text = "Label1"
         '
@@ -524,9 +526,9 @@ Partial Class frmYahtzee
         '
         Me.lblDie4.AutoSize = True
         Me.lblDie4.BackColor = System.Drawing.Color.White
-        Me.lblDie4.Location = New System.Drawing.Point(369, 473)
+        Me.lblDie4.Location = New System.Drawing.Point(440, 535)
         Me.lblDie4.Name = "lblDie4"
-        Me.lblDie4.Size = New System.Drawing.Size(39, 13)
+        Me.lblDie4.Size = New System.Drawing.Size(45, 15)
         Me.lblDie4.TabIndex = 105
         Me.lblDie4.Text = "Label1"
         '
@@ -534,9 +536,9 @@ Partial Class frmYahtzee
         '
         Me.lblDie3.AutoSize = True
         Me.lblDie3.BackColor = System.Drawing.Color.White
-        Me.lblDie3.Location = New System.Drawing.Point(270, 473)
+        Me.lblDie3.Location = New System.Drawing.Point(318, 535)
         Me.lblDie3.Name = "lblDie3"
-        Me.lblDie3.Size = New System.Drawing.Size(39, 13)
+        Me.lblDie3.Size = New System.Drawing.Size(45, 15)
         Me.lblDie3.TabIndex = 104
         Me.lblDie3.Text = "Label1"
         '
@@ -544,9 +546,9 @@ Partial Class frmYahtzee
         '
         Me.lblDie2.AutoSize = True
         Me.lblDie2.BackColor = System.Drawing.Color.White
-        Me.lblDie2.Location = New System.Drawing.Point(163, 473)
+        Me.lblDie2.Location = New System.Drawing.Point(191, 535)
         Me.lblDie2.Name = "lblDie2"
-        Me.lblDie2.Size = New System.Drawing.Size(39, 13)
+        Me.lblDie2.Size = New System.Drawing.Size(45, 15)
         Me.lblDie2.TabIndex = 103
         Me.lblDie2.Text = "Label1"
         '
@@ -554,9 +556,9 @@ Partial Class frmYahtzee
         '
         Me.lblDie.AutoSize = True
         Me.lblDie.BackColor = System.Drawing.Color.White
-        Me.lblDie.Location = New System.Drawing.Point(48, 484)
+        Me.lblDie.Location = New System.Drawing.Point(52, 535)
         Me.lblDie.Name = "lblDie"
-        Me.lblDie.Size = New System.Drawing.Size(39, 13)
+        Me.lblDie.Size = New System.Drawing.Size(45, 15)
         Me.lblDie.TabIndex = 102
         Me.lblDie.Text = "Label1"
         '
@@ -567,9 +569,9 @@ Partial Class frmYahtzee
         Me.chkRoll5.Checked = True
         Me.chkRoll5.CheckState = System.Windows.Forms.CheckState.Checked
         Me.chkRoll5.Enabled = False
-        Me.chkRoll5.Location = New System.Drawing.Point(448, 550)
+        Me.chkRoll5.Location = New System.Drawing.Point(523, 635)
         Me.chkRoll5.Name = "chkRoll5"
-        Me.chkRoll5.Size = New System.Drawing.Size(44, 17)
+        Me.chkRoll5.Size = New System.Drawing.Size(48, 19)
         Me.chkRoll5.TabIndex = 101
         Me.chkRoll5.Text = "Roll"
         Me.chkRoll5.UseVisualStyleBackColor = False
@@ -581,9 +583,9 @@ Partial Class frmYahtzee
         Me.chkRoll4.Checked = True
         Me.chkRoll4.CheckState = System.Windows.Forms.CheckState.Checked
         Me.chkRoll4.Enabled = False
-        Me.chkRoll4.Location = New System.Drawing.Point(342, 550)
+        Me.chkRoll4.Location = New System.Drawing.Point(399, 635)
         Me.chkRoll4.Name = "chkRoll4"
-        Me.chkRoll4.Size = New System.Drawing.Size(44, 17)
+        Me.chkRoll4.Size = New System.Drawing.Size(48, 19)
         Me.chkRoll4.TabIndex = 100
         Me.chkRoll4.Text = "Roll"
         Me.chkRoll4.UseVisualStyleBackColor = False
@@ -595,9 +597,9 @@ Partial Class frmYahtzee
         Me.chkRoll3.Checked = True
         Me.chkRoll3.CheckState = System.Windows.Forms.CheckState.Checked
         Me.chkRoll3.Enabled = False
-        Me.chkRoll3.Location = New System.Drawing.Point(236, 550)
+        Me.chkRoll3.Location = New System.Drawing.Point(275, 635)
         Me.chkRoll3.Name = "chkRoll3"
-        Me.chkRoll3.Size = New System.Drawing.Size(44, 17)
+        Me.chkRoll3.Size = New System.Drawing.Size(48, 19)
         Me.chkRoll3.TabIndex = 99
         Me.chkRoll3.Text = "Roll"
         Me.chkRoll3.UseVisualStyleBackColor = False
@@ -609,9 +611,9 @@ Partial Class frmYahtzee
         Me.chkRoll2.Checked = True
         Me.chkRoll2.CheckState = System.Windows.Forms.CheckState.Checked
         Me.chkRoll2.Enabled = False
-        Me.chkRoll2.Location = New System.Drawing.Point(124, 550)
+        Me.chkRoll2.Location = New System.Drawing.Point(145, 635)
         Me.chkRoll2.Name = "chkRoll2"
-        Me.chkRoll2.Size = New System.Drawing.Size(44, 17)
+        Me.chkRoll2.Size = New System.Drawing.Size(48, 19)
         Me.chkRoll2.TabIndex = 98
         Me.chkRoll2.Text = "Roll"
         Me.chkRoll2.UseVisualStyleBackColor = False
@@ -623,19 +625,19 @@ Partial Class frmYahtzee
         Me.chkRoll1.Checked = True
         Me.chkRoll1.CheckState = System.Windows.Forms.CheckState.Checked
         Me.chkRoll1.Enabled = False
-        Me.chkRoll1.Location = New System.Drawing.Point(19, 550)
+        Me.chkRoll1.Location = New System.Drawing.Point(22, 635)
         Me.chkRoll1.Name = "chkRoll1"
-        Me.chkRoll1.Size = New System.Drawing.Size(44, 17)
+        Me.chkRoll1.Size = New System.Drawing.Size(48, 19)
         Me.chkRoll1.TabIndex = 97
         Me.chkRoll1.Text = "Roll"
         Me.chkRoll1.UseVisualStyleBackColor = False
         '
         'btnRollEm
         '
-        Me.btnRollEm.Location = New System.Drawing.Point(586, 493)
-        Me.btnRollEm.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnRollEm.Location = New System.Drawing.Point(684, 569)
+        Me.btnRollEm.Margin = New System.Windows.Forms.Padding(5, 6, 5, 6)
         Me.btnRollEm.Name = "btnRollEm"
-        Me.btnRollEm.Size = New System.Drawing.Size(98, 50)
+        Me.btnRollEm.Size = New System.Drawing.Size(114, 58)
         Me.btnRollEm.TabIndex = 96
         Me.btnRollEm.Text = "Roll Em"
         Me.btnRollEm.UseVisualStyleBackColor = True
@@ -644,8 +646,8 @@ Partial Class frmYahtzee
         '
         Me.pbxDie5.BackColor = System.Drawing.Color.White
         Me.pbxDie5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pbxDie5.Location = New System.Drawing.Point(452, 493)
-        Me.pbxDie5.Margin = New System.Windows.Forms.Padding(4)
+        Me.pbxDie5.Location = New System.Drawing.Point(527, 569)
+        Me.pbxDie5.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
         Me.pbxDie5.Name = "pbxDie5"
         Me.pbxDie5.Size = New System.Drawing.Size(100, 50)
         Me.pbxDie5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -656,8 +658,8 @@ Partial Class frmYahtzee
         '
         Me.pbxDie4.BackColor = System.Drawing.Color.White
         Me.pbxDie4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pbxDie4.Location = New System.Drawing.Point(344, 493)
-        Me.pbxDie4.Margin = New System.Windows.Forms.Padding(4)
+        Me.pbxDie4.Location = New System.Drawing.Point(401, 569)
+        Me.pbxDie4.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
         Me.pbxDie4.Name = "pbxDie4"
         Me.pbxDie4.Size = New System.Drawing.Size(100, 50)
         Me.pbxDie4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -668,8 +670,8 @@ Partial Class frmYahtzee
         '
         Me.pbxDie3.BackColor = System.Drawing.Color.White
         Me.pbxDie3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pbxDie3.Location = New System.Drawing.Point(236, 493)
-        Me.pbxDie3.Margin = New System.Windows.Forms.Padding(4)
+        Me.pbxDie3.Location = New System.Drawing.Point(275, 569)
+        Me.pbxDie3.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
         Me.pbxDie3.Name = "pbxDie3"
         Me.pbxDie3.Size = New System.Drawing.Size(100, 50)
         Me.pbxDie3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -680,8 +682,8 @@ Partial Class frmYahtzee
         '
         Me.pbxDie2.BackColor = System.Drawing.Color.White
         Me.pbxDie2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pbxDie2.Location = New System.Drawing.Point(128, 493)
-        Me.pbxDie2.Margin = New System.Windows.Forms.Padding(4)
+        Me.pbxDie2.Location = New System.Drawing.Point(149, 569)
+        Me.pbxDie2.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
         Me.pbxDie2.Name = "pbxDie2"
         Me.pbxDie2.Size = New System.Drawing.Size(100, 50)
         Me.pbxDie2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -692,8 +694,8 @@ Partial Class frmYahtzee
         '
         Me.pbxDie1.BackColor = System.Drawing.Color.White
         Me.pbxDie1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pbxDie1.Location = New System.Drawing.Point(20, 493)
-        Me.pbxDie1.Margin = New System.Windows.Forms.Padding(4)
+        Me.pbxDie1.Location = New System.Drawing.Point(23, 569)
+        Me.pbxDie1.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
         Me.pbxDie1.Name = "pbxDie1"
         Me.pbxDie1.Size = New System.Drawing.Size(100, 50)
         Me.pbxDie1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -716,8 +718,8 @@ Partial Class frmYahtzee
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GameToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(8, 2, 0, 2)
-        Me.MenuStrip1.Size = New System.Drawing.Size(794, 24)
+        Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(9, 2, 0, 2)
+        Me.MenuStrip1.Size = New System.Drawing.Size(869, 24)
         Me.MenuStrip1.TabIndex = 108
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -754,38 +756,32 @@ Partial Class frmYahtzee
         '
         'HelpToolStripMenuItem
         '
-        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HowToPlayToolStripMenuItem, Me.AboutToolStripMenuItem})
+        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuHelpHowToPlay, Me.AboutToolStripMenuItem})
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
         Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
         Me.HelpToolStripMenuItem.Text = "Help"
         '
-        'HowToPlayToolStripMenuItem
+        'mnuHelpHowToPlay
         '
-        Me.HowToPlayToolStripMenuItem.Name = "HowToPlayToolStripMenuItem"
-        Me.HowToPlayToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
-        Me.HowToPlayToolStripMenuItem.Text = "How to Play"
+        Me.mnuHelpHowToPlay.Name = "mnuHelpHowToPlay"
+        Me.mnuHelpHowToPlay.Size = New System.Drawing.Size(152, 22)
+        Me.mnuHelpHowToPlay.Text = "How to Play"
         '
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.AboutToolStripMenuItem.Text = "About"
         '
-        'lstScores
+        'tmrRoll
         '
-        Me.lstScores.FormattingEnabled = True
-        Me.lstScores.Location = New System.Drawing.Point(30, 573)
-        Me.lstScores.Name = "lstScores"
-        Me.lstScores.Size = New System.Drawing.Size(120, 95)
-        Me.lstScores.TabIndex = 109
         '
         'frmYahtzee
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Navy
-        Me.ClientSize = New System.Drawing.Size(794, 681)
-        Me.Controls.Add(Me.lstScores)
+        Me.ClientSize = New System.Drawing.Size(869, 699)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.lblTotal)
         Me.Controls.Add(Me.lblDie5)
@@ -806,8 +802,9 @@ Partial Class frmYahtzee
         Me.Controls.Add(Me.pbxDie1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Name = "frmYahtzee"
-        Me.Text = "Form1"
+        Me.Text = "Yahtzee"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
@@ -888,11 +885,11 @@ Partial Class frmYahtzee
     Friend WithEvents ShowHighScoresToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents QuitToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents HelpToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents HowToPlayToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents mnuHelpHowToPlay As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AboutToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
     Private Sub GroupBox2_Enter(sender As Object, e As EventArgs) Handles GroupBox2.Enter
 
     End Sub
-    Friend WithEvents lstScores As System.Windows.Forms.ListBox
+    Friend WithEvents tmrRoll As System.Windows.Forms.Timer
 End Class
