@@ -114,7 +114,7 @@ Partial Class frmAbout
         Me.LabelCopyright.Name = "LabelCopyright"
         Me.LabelCopyright.Size = New System.Drawing.Size(257, 17)
         Me.LabelCopyright.TabIndex = 0
-        Me.LabelCopyright.Text = "Copyright 2014"
+        Me.LabelCopyright.Text = "Fall 2014"
         Me.LabelCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'LabelCompanyName
@@ -137,11 +137,10 @@ Partial Class frmAbout
         Me.TextBoxDescription.Multiline = True
         Me.TextBoxDescription.Name = "TextBoxDescription"
         Me.TextBoxDescription.ReadOnly = True
-        Me.TextBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Both
         Me.TextBoxDescription.Size = New System.Drawing.Size(257, 123)
         Me.TextBoxDescription.TabIndex = 0
         Me.TextBoxDescription.TabStop = False
-        Me.TextBoxDescription.Text = "Description :" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Yahtzee game made in Visual Basic 2012"
+        Me.TextBoxDescription.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "               " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "         Yahtzee game made in Visual Basic 2012"
         '
         'OKButton
         '

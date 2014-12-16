@@ -87,6 +87,8 @@ Partial Class frmYahtzee
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.tmrRoll = New System.Windows.Forms.Timer(Me.components)
         Me.ToolTipAces = New System.Windows.Forms.ToolTip(Me.components)
+        Me.nameLabel = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.pbxDie5, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -123,7 +125,7 @@ Partial Class frmYahtzee
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(5)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(5)
-        Me.GroupBox1.Size = New System.Drawing.Size(383, 415)
+        Me.GroupBox1.Size = New System.Drawing.Size(383, 383)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Upper Section"
@@ -699,13 +701,13 @@ Partial Class frmYahtzee
         'mnuHelpHowToPlay
         '
         Me.mnuHelpHowToPlay.Name = "mnuHelpHowToPlay"
-        Me.mnuHelpHowToPlay.Size = New System.Drawing.Size(152, 22)
+        Me.mnuHelpHowToPlay.Size = New System.Drawing.Size(138, 22)
         Me.mnuHelpHowToPlay.Text = "How to Play"
         '
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
         Me.AboutToolStripMenuItem.Text = "About"
         '
         'tmrRoll
@@ -719,12 +721,31 @@ Partial Class frmYahtzee
         Me.ToolTipAces.ShowAlways = True
         Me.ToolTipAces.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
         '
+        'nameLabel
+        '
+        Me.nameLabel.BackColor = System.Drawing.Color.AliceBlue
+        Me.nameLabel.Location = New System.Drawing.Point(166, 437)
+        Me.nameLabel.Name = "nameLabel"
+        Me.nameLabel.Size = New System.Drawing.Size(252, 66)
+        Me.nameLabel.TabIndex = 109
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(81, 454)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(68, 15)
+        Me.Label8.TabIndex = 110
+        Me.Label8.Text = "High Score"
+        '
         'frmYahtzee
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Navy
         Me.ClientSize = New System.Drawing.Size(869, 627)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.nameLabel)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.chkRoll5)
         Me.Controls.Add(Me.chkRoll4)
@@ -824,4 +845,6 @@ Partial Class frmYahtzee
     End Sub
     Friend WithEvents tmrRoll As System.Windows.Forms.Timer
     Friend WithEvents ToolTipAces As System.Windows.Forms.ToolTip
+    Friend WithEvents nameLabel As System.Windows.Forms.Label
+    Friend WithEvents Label8 As System.Windows.Forms.Label
 End Class

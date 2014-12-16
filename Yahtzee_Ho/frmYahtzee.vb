@@ -23,8 +23,9 @@ Public Class frmYahtzee
     'define upper section bonus 
     Dim UpperSectionBonus As Integer = 35
 
-    'define round count
-    Dim RoundCount As Integer
+    'define variables for High Score sheet
+    Dim GameIsOver As Boolean = False
+    Dim playerName As String = ""
 
     'define variables to track what has been scored
     Dim acesScored As Boolean = False
@@ -270,6 +271,46 @@ Public Class frmYahtzee
         txtTotalScore.Text = CStr(TotalScore)
         txtGrandTotal.Text = CStr(GrandTotal)
     End Sub
+    Sub HighScoreCheck()
+        Dim scoreHoldFile As StreamWriter
+        'scoreHoldFile = File.CreateText("holdHighScore.txt")
+        ' used above code to create file holdHighScore.txt
+        Dim readScoreFile As StreamReader
+        Dim HighScore As Integer
+        Dim FileNum As Integer
+        If GameIsOver Then
+            'open holdHighScore.txt to read what standing high score was
+            readScoreFile = File.OpenText("holdHighScore.txt")
+            'put score into variable
+            HighScore = readScoreFile.ReadLine()
+            'close file
+            readScoreFile.Close()
+
+            If GrandTotal > HighScore Then
+
+                HighScore = GrandTotal
+                playerName = InputBox("High Score! Enter your name: ", "It's a High Score!")
+                nameLabel.Text = "Top player: " & playerName & ": " & GrandTotal & " points"
+                FileNum = FreeFile()
+                Debug.Print(FileNum)
+
+                'Open file to write
+                FileOpen(FileNum, "HighScore.txt", OpenMode.Output)
+                PrintLine(FileNum, TAB(5), "Current High Score:")
+                PrintLine(FileNum, SPC(5), "Name: ", playerName, "Score: ", GrandTotal)
+                FileClose(FileNum) 'Close file
+
+                'open file to write/hold standing high score
+                scoreHoldFile = File.CreateText("holdHighScore.txt")
+                'write score
+                scoreHoldFile.WriteLine(HighScore)
+                ' close holdHighScore.txt
+                scoreHoldFile.Close()
+
+
+            End If
+        End If
+    End Sub
 
     Sub EnableScoreButtons()
         btnAces.Enabled = Not acesScored
@@ -292,8 +333,12 @@ Public Class frmYahtzee
             fiveSeqScored And fullHouseScored And chanceScored And
             yahtzeeScored Then
             ResetTallyAndRollCount()
-            HighScoreRecord()
+            'HighScoreRecord()
             MessageBox.Show("Game Over")
+            'flag that game is over so that sub (under timer) HighScore can check for high score
+            GameIsOver = True
+            HighScoreCheck()
+            'tmrRoll.Stop()
         End If
     End Sub
 
@@ -340,6 +385,9 @@ Public Class frmYahtzee
     End Sub
 
     Private Sub frmYahtzee_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'High Score text file
+        Dim FileNum As Integer = FreeFile()
+        'tmrRoll.Start()
         pbxDie1.Image = imlDiceList.Images(0)
         pbxDie2.Image = imlDiceList.Images(0)
         pbxDie3.Image = imlDiceList.Images(0)
@@ -353,6 +401,36 @@ Public Class frmYahtzee
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles tmrRoll.Tick
+        Dim HighScore As Integer = 0
+        Dim FileNum As Integer
+        If GameIsOver Then
+            If GrandTotal > HighScore Then
+                HighScore = GrandTotal
+                playerName = InputBox("High Score! Enter your name", "Enter your name")
+                nameLabel.Text = "Top player: " & playerName & ":" & GrandTotal & "points"
+                FileNum = FreeFile()
+                Debug.Print(FileNum)
+                'Open file
+                FileOpen(FileNum, "HighScore.txt", OpenMode.Output)
+                PrintLine(FileNum, TAB(5), "Current High Score:")
+                PrintLine(FileNum, SPC(5), "Name: ", playerName, "Score: ", GrandTotal)
+                
+                ' Assign Boolean, Date, and Error values. 
+                Dim aBool As Boolean
+                Dim aDate As DateTime
+                aBool = False
+                aDate = DateTime.Parse("February 12, 1969")
+
+                ' Dates and booleans are translated using locale settings of your system.
+                PrintLine(1, aBool, " is a Boolean value")
+                PrintLine(1, aDate, " is a date")
+                
+                FileClose(FileNum) 'Close file
+
+
+                
+            End If
+        End If
 
     End Sub
 
