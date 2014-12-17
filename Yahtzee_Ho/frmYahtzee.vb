@@ -26,6 +26,12 @@ Public Class frmYahtzee
     'define variables for High Score sheet
     Dim GameIsOver As Boolean = False
     Dim playerName As String = ""
+    Dim writeScoreHoldFile As StreamWriter
+    Dim writeNameFile As StreamWriter
+    Dim readScoreFile As StreamReader
+    Dim writeScoreHistoryFile As StreamWriter
+    Dim HighScore As Integer
+    Dim FileNum As Integer
 
     'define variables to track what has been scored
     Dim acesScored As Boolean = False
@@ -272,12 +278,10 @@ Public Class frmYahtzee
         txtGrandTotal.Text = CStr(GrandTotal)
     End Sub
     Sub HighScoreCheck()
-        Dim scoreHoldFile As StreamWriter
         'scoreHoldFile = File.CreateText("holdHighScore.txt")
-        ' used above code to create file holdHighScore.txt
-        Dim readScoreFile As StreamReader
-        Dim HighScore As Integer
-        Dim FileNum As Integer
+        'nameFile = File.CreateText("playerName.txt")
+        'used the 2 lines of codes above to create file holdHighScore.txt and playerName.txt then disabled them
+        
         If GameIsOver Then
             'open holdHighScore.txt to read what standing high score was
             readScoreFile = File.OpenText("holdHighScore.txt")
@@ -285,29 +289,41 @@ Public Class frmYahtzee
             HighScore = readScoreFile.ReadLine()
             'close file
             readScoreFile.Close()
+            'unlock/release resources to prevent error
+            readScoreFile.Dispose()
 
             If GrandTotal > HighScore Then
-
                 HighScore = GrandTotal
+
+                'get player's name
                 playerName = InputBox("High Score! Enter your name: ", "It's a High Score!")
-                nameLabel.Text = "Top player: " & playerName & ": " & GrandTotal & " points"
-                FileNum = FreeFile()
-                Debug.Print(FileNum)
 
-                'Open file to write
-                FileOpen(FileNum, "HighScore.txt", OpenMode.Output)
-                PrintLine(FileNum, TAB(5), "Current High Score:")
-                PrintLine(FileNum, SPC(5), "Name: ", playerName, "Score: ", GrandTotal)
-                FileClose(FileNum) 'Close file
+                'Open and append score information to HighScore.txt file
+                writeScoreHistoryFile = File.AppendText("HighScore.txt")
+                writeScoreHistoryFile.WriteLine()
+                writeScoreHistoryFile.Write(playerName & "   " & HighScore & " points    " & DateTime.Now)
+                writeScoreHistoryFile.Close()
+                writeScoreHistoryFile.Dispose()
 
-                'open file to write/hold standing high score
-                scoreHoldFile = File.CreateText("holdHighScore.txt")
+                'Open file to write/hold player's name playerName.txt file
+                writeNameFile = File.CreateText("playerName.txt")
                 'write score
-                scoreHoldFile.WriteLine(HighScore)
+                writeNameFile.WriteLine(playerName)
+                'close playerName.txt
+                writeNameFile.Close()
+                'unlock file/release to prevent errors
+                writeNameFile.Dispose()
+
+                'open file to write/hold standing high score in holdHighScore.txt file
+                writeScoreHoldFile = File.CreateText("holdHighScore.txt")
+                'write score
+                writeScoreHoldFile.WriteLine(HighScore)
                 ' close holdHighScore.txt
-                scoreHoldFile.Close()
+                writeScoreHoldFile.Close()
+                'unlock file/release resources to prevent errors
+                writeScoreHoldFile.Dispose()
 
-
+                nameLabel.Text = "Top player: " & playerName & ": " & HighScore & " points"
             End If
         End If
     End Sub
@@ -401,36 +417,7 @@ Public Class frmYahtzee
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles tmrRoll.Tick
-        Dim HighScore As Integer = 0
-        Dim FileNum As Integer
-        If GameIsOver Then
-            If GrandTotal > HighScore Then
-                HighScore = GrandTotal
-                playerName = InputBox("High Score! Enter your name", "Enter your name")
-                nameLabel.Text = "Top player: " & playerName & ":" & GrandTotal & "points"
-                FileNum = FreeFile()
-                Debug.Print(FileNum)
-                'Open file
-                FileOpen(FileNum, "HighScore.txt", OpenMode.Output)
-                PrintLine(FileNum, TAB(5), "Current High Score:")
-                PrintLine(FileNum, SPC(5), "Name: ", playerName, "Score: ", GrandTotal)
-                
-                ' Assign Boolean, Date, and Error values. 
-                Dim aBool As Boolean
-                Dim aDate As DateTime
-                aBool = False
-                aDate = DateTime.Parse("February 12, 1969")
-
-                ' Dates and booleans are translated using locale settings of your system.
-                PrintLine(1, aBool, " is a Boolean value")
-                PrintLine(1, aDate, " is a date")
-                
-                FileClose(FileNum) 'Close file
-
-
-                
-            End If
-        End If
+        
 
     End Sub
 
@@ -442,10 +429,12 @@ Public Class frmYahtzee
     Private Sub NewGameToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles mnuGameNewGame.Click
         'clear out old game and prepare for new game
         'Array to clear out output boxes
+        'Define array
         Dim outputTextBoxes As TextBox() = {txtAces, txtTwos, txtThrees, txtFours, txtFives, txtFours,
                                          txtFives, txtSixes, txt3OAK, txt4OAK, txtFullHouse, txtGrandTotal, txtUpperSectionBonus,
                                          txtSeq4, txtSeq5, txtYahtzee, txtChance, txtTotalLowerScore,
                                         txtTotalScore, txtYtzBonus, txtTotalUpperSection}
+
         For k = 0 To outputTextBoxes.Length - 1
             outputTextBoxes(k).Text() = ""
         Next
@@ -480,26 +469,20 @@ Public Class frmYahtzee
         Next
     End Sub
 
-    Sub HighScoreRecord()
-        Dim EndScore As StreamWriter
-        Dim strName As String
-        strName = InputBox("Enter your name: ")
-        EndScore = File.AppendText("txtHighScoreRecord.txt")
-        EndScore.WriteLine(strName & "         " & GrandTotal.ToString & "    ")
-        System.DateTime.Now.ToString("ddmmyyyy")
-    End Sub
-
-
     Private Sub mnuGameQuit_Click(sender As Object, e As EventArgs) Handles mnuGameQuit.Click
         Me.Close()
     End Sub
 
     Private Sub ShowHighScoresToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ShowHighScoresToolStripMenuItem.Click
-
+        'opens Show High Scores window
+        frmShowHighScores.ShowDialog()
     End Sub
 
     Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
         'Dim frmAbout As New AboutForm
+        'open About window
         frmAbout.ShowDialog()
     End Sub
+
+
 End Class

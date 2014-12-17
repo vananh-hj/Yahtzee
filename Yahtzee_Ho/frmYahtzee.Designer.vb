@@ -79,7 +79,6 @@ Partial Class frmYahtzee
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.GameToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuGameNewGame = New System.Windows.Forms.ToolStripMenuItem()
-        Me.UndoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ShowHighScoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuGameQuit = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -662,7 +661,7 @@ Partial Class frmYahtzee
         '
         'GameToolStripMenuItem
         '
-        Me.GameToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuGameNewGame, Me.UndoToolStripMenuItem, Me.ShowHighScoresToolStripMenuItem, Me.mnuGameQuit})
+        Me.GameToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuGameNewGame, Me.ShowHighScoresToolStripMenuItem, Me.mnuGameQuit})
         Me.GameToolStripMenuItem.Name = "GameToolStripMenuItem"
         Me.GameToolStripMenuItem.Size = New System.Drawing.Size(50, 20)
         Me.GameToolStripMenuItem.Text = "Game"
@@ -673,12 +672,6 @@ Partial Class frmYahtzee
         Me.mnuGameNewGame.Size = New System.Drawing.Size(169, 22)
         Me.mnuGameNewGame.Text = "New Game"
         '
-        'UndoToolStripMenuItem
-        '
-        Me.UndoToolStripMenuItem.Name = "UndoToolStripMenuItem"
-        Me.UndoToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
-        Me.UndoToolStripMenuItem.Text = "Undo"
-        '
         'ShowHighScoresToolStripMenuItem
         '
         Me.ShowHighScoresToolStripMenuItem.Name = "ShowHighScoresToolStripMenuItem"
@@ -688,6 +681,7 @@ Partial Class frmYahtzee
         'mnuGameQuit
         '
         Me.mnuGameQuit.Name = "mnuGameQuit"
+        Me.mnuGameQuit.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Q), System.Windows.Forms.Keys)
         Me.mnuGameQuit.Size = New System.Drawing.Size(169, 22)
         Me.mnuGameQuit.Text = "Quit"
         '
@@ -833,7 +827,6 @@ Partial Class frmYahtzee
     Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
     Friend WithEvents GameToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents mnuGameNewGame As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents UndoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ShowHighScoresToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents mnuGameQuit As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents HelpToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem

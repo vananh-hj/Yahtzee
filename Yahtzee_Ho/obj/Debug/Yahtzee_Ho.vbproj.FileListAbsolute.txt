@@ -50,3 +50,4 @@ C:\Users\Yen Vi\Documents\Yahtzee\Yahtzee_Ho\obj\Debug\Yahtzee_Ho.Resources.reso
 C:\Users\Yen Vi\Documents\Yahtzee\Yahtzee_Ho\obj\Debug\Yahtzee_Ho.vbproj.GenerateResource.Cache
 C:\Users\Yen Vi\Documents\Yahtzee\Yahtzee_Ho\obj\Debug\Yahtzee_Ho.frmAbout.resources
 C:\Users\Yen Vi\Documents\Yahtzee\Yahtzee_Ho\obj\Debug\Yahtzee_Ho.frmRules.resources
+C:\Users\Yen Vi\Documents\Yahtzee\Yahtzee_Ho\obj\Debug\Yahtzee_Ho.frmShowHighScores.resources

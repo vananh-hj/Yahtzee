@@ -89,6 +89,12 @@
     <Compile Include="frmRules.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmShowHighScores.Designer.vb">
+      <DependentUpon>frmShowHighScores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmShowHighScores.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmYahtzee.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,7 @@
       <DependentUpon>frmYahtzee.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="HighScoresForm.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -112,6 +119,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="RulesForm.vb" />
+    <Compile Include="ShowHighScoresForm.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmAbout.resx">
@@ -119,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRules.resx">
       <DependentUpon>frmRules.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmShowHighScores.resx">
+      <DependentUpon>frmShowHighScores.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmYahtzee.resx">
       <DependentUpon>frmYahtzee.vb</DependentUpon>
