@@ -437,6 +437,8 @@ Public Class frmYahtzee
         For k = 0 To outputTextBoxes.Length - 1
             outputTextBoxes(k).Text() = ""
         Next
+        'Zero out counters
+        RollCount = 0
         'Zero out all scores kept
         TotalScore = 0
         Max = 0
@@ -483,5 +485,146 @@ Public Class frmYahtzee
         frmAbout.ShowDialog()
     End Sub
 
+    Private Sub btnAces_MouseHover(sender As Object, e As EventArgs) Handles btnAces.MouseHover
+        txtAces.ForeColor = Color.DarkBlue
+        txtAces.Text = CStr(TallyArray(0))
+    End Sub
 
+    Private Sub btnAces_MouseLeave(sender As Object, e As EventArgs) Handles btnAces.MouseLeave
+        'acesScored = False
+        txtAces.Text = ""
+        txtAces.ForeColor = System.Drawing.Color.Black
+    End Sub
+
+    Private Sub btnTwos_MouseHover(sender As Object, e As EventArgs) Handles btnTwos.MouseHover
+        txtTwos.Text = CStr(2 * TallyArray(1))
+    End Sub
+
+    Private Sub btnTwos_MouseLeave(sender As Object, e As EventArgs) Handles btnTwos.MouseLeave
+        txtTwos.Text = ""
+    End Sub
+
+    Private Sub btnThrees_MouseHover(sender As Object, e As EventArgs) Handles btnThrees.MouseHover
+        txtThrees.Text = CStr(3 * TallyArray(2))
+    End Sub
+
+    Private Sub btnThrees_MouseLeave(sender As Object, e As EventArgs) Handles btnThrees.MouseLeave
+        txtThrees.Text = ""
+    End Sub
+
+    Private Sub btnFours_MouseHover(sender As Object, e As EventArgs) Handles btnFours.MouseHover
+        txtFours.Text = CStr(4 * TallyArray(3))
+    End Sub
+
+    Private Sub btnFours_MouseLeave(sender As Object, e As EventArgs) Handles btnFours.MouseLeave
+        txtFours.Text = ""
+    End Sub
+
+    Private Sub btnFives_MouseHover(sender As Object, e As EventArgs) Handles btnFives.MouseHover
+        txtFives.Text = CStr(5 * TallyArray(4))
+    End Sub
+
+    Private Sub btnFives_MouseLeave(sender As Object, e As EventArgs) Handles btnFives.MouseLeave
+        txtFives.Text = ""
+    End Sub
+
+    Private Sub btnSixes_MouseHover(sender As Object, e As EventArgs) Handles btnSixes.MouseHover
+        txtSixes.Text = CStr(6 * TallyArray(5))
+    End Sub
+
+    Private Sub btnSixes_MouseLeave(sender As Object, e As EventArgs) Handles btnSixes.MouseLeave
+        txtSixes.Text = ""
+    End Sub
+
+    Private Sub btn3OAK_MouseHover(sender As Object, e As EventArgs) Handles btn3OAK.MouseHover
+        If Max >= 3 Then
+            LowerSection += Sum
+            GrandTotal += Sum
+            txt3OAK.Text = CStr(Sum)
+        Else
+            txt3OAK.Text = "0"
+        End If
+    End Sub
+
+    Private Sub btn3OAK_MouseLeave(sender As Object, e As EventArgs) Handles btn3OAK.MouseLeave
+        txt3OAK.Text = ""
+    End Sub
+
+    Private Sub btn4OAK_MouseHover(sender As Object, e As EventArgs) Handles btn4OAK.MouseHover
+        If Max >= 4 Then
+            LowerSection += Sum
+            GrandTotal += Sum
+            txt4OAK.Text = CStr(Sum)
+        Else
+            txt4OAK.Text = "0"
+        End If
+    End Sub
+
+    Private Sub btn4OAK_MouseLeave(sender As Object, e As EventArgs) Handles btn4OAK.MouseLeave
+        txt4OAK.Text = ""
+    End Sub
+
+    Private Sub btnFullHouse_MouseHover(sender As Object, e As EventArgs) Handles btnFullHouse.MouseHover
+        If Max = 3 And Zero = 4 Then
+            LowerSection += 25
+            GrandTotal += 25
+            txtFullHouse.Text = "25"
+        Else
+            txtFullHouse.Text = "0"
+        End If
+    End Sub
+
+    Private Sub btnFullHouse_MouseLeave(sender As Object, e As EventArgs) Handles btnFullHouse.MouseLeave
+        txtFullHouse.Text = ""
+    End Sub
+
+    Private Sub btnSeq4_MouseHover(sender As Object, e As EventArgs) Handles btnSeq4.MouseHover
+        If (TallyArray(0) >= 1 And TallyArray(1) >= 1 And TallyArray(2) >= 1 And TallyArray(3) >= 1) Or
+           (TallyArray(1) >= 1 And TallyArray(2) >= 1 And TallyArray(3) >= 1 And TallyArray(4) >= 1) Or
+           (TallyArray(2) >= 1 And TallyArray(3) >= 1 And TallyArray(4) >= 1 And TallyArray(5) >= 1) Then
+            LowerSection += 30
+            GrandTotal += 30
+            txtSeq4.Text = "30"
+        Else
+            txtSeq4.Text = "0"
+        End If
+    End Sub
+
+    Private Sub btnSeq4_MouseLeave(sender As Object, e As EventArgs) Handles btnSeq4.MouseLeave
+        txtSeq4.Text = ""
+    End Sub
+
+    Private Sub btnSeq5_MouseHover(sender As Object, e As EventArgs) Handles btnSeq5.MouseHover
+        If Max = 1 And (TallyArray(0) = 0 Or TallyArray(5) = 0) Then
+            txtSeq5.Text = "40"
+        Else
+            txtSeq5.Text = "0"
+        End If
+    End Sub
+
+    Private Sub btnSeq5_MouseLeave(sender As Object, e As EventArgs) Handles btnSeq5.MouseLeave
+        txtSeq5.Text = ""
+    End Sub
+
+    Private Sub btnYahtzee_MouseHover(sender As Object, e As EventArgs) Handles btnYahtzee.MouseHover
+        If Max = 5 Then
+            LowerSection += 50
+            GrandTotal += 50
+            txtYahtzee.Text = "50"
+        Else
+            txtYahtzee.Text = "0"
+        End If
+    End Sub
+
+    Private Sub btnYahtzee_MouseLeave(sender As Object, e As EventArgs) Handles btnYahtzee.MouseLeave
+        txtYahtzee.Text = ""
+    End Sub
+
+    Private Sub btnChance_MouseHover(sender As Object, e As EventArgs) Handles btnChance.MouseHover
+        txtChance.Text = CStr(Sum)
+    End Sub
+
+    Private Sub btnChance_MouseLeave(sender As Object, e As EventArgs) Handles btnChance.MouseLeave
+        txtChance.Text = ""
+    End Sub
 End Class

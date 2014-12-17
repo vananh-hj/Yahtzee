@@ -182,6 +182,7 @@ Partial Class frmYahtzee
         'btnAces
         '
         Me.btnAces.Enabled = False
+        Me.btnAces.ForeColor = System.Drawing.SystemColors.ControlText
         Me.btnAces.Location = New System.Drawing.Point(31, 47)
         Me.btnAces.Name = "btnAces"
         Me.btnAces.Size = New System.Drawing.Size(87, 25)
@@ -575,7 +576,7 @@ Partial Class frmYahtzee
         Me.btnRollEm.Name = "btnRollEm"
         Me.btnRollEm.Size = New System.Drawing.Size(114, 58)
         Me.btnRollEm.TabIndex = 96
-        Me.btnRollEm.Text = "Roll Em"
+        Me.btnRollEm.Text = "Roll! (3)"
         Me.btnRollEm.UseVisualStyleBackColor = True
         '
         'pbxDie5
@@ -720,7 +721,7 @@ Partial Class frmYahtzee
         Me.nameLabel.BackColor = System.Drawing.Color.AliceBlue
         Me.nameLabel.Location = New System.Drawing.Point(166, 437)
         Me.nameLabel.Name = "nameLabel"
-        Me.nameLabel.Size = New System.Drawing.Size(252, 66)
+        Me.nameLabel.Size = New System.Drawing.Size(252, 45)
         Me.nameLabel.TabIndex = 109
         '
         'Label8

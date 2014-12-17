@@ -27,7 +27,6 @@ Partial Class frmShowHighScores
         Me.lblCurrentHighScore = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnClose = New System.Windows.Forms.Button()
-        Me.btnClearHistory = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'lstHighScores
@@ -73,28 +72,18 @@ Partial Class frmShowHighScores
         '
         'btnClose
         '
-        Me.btnClose.Location = New System.Drawing.Point(416, 366)
+        Me.btnClose.Location = New System.Drawing.Point(200, 352)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(162, 31)
         Me.btnClose.TabIndex = 114
         Me.btnClose.Text = "Close"
         Me.btnClose.UseVisualStyleBackColor = True
         '
-        'btnClearHistory
-        '
-        Me.btnClearHistory.Location = New System.Drawing.Point(200, 366)
-        Me.btnClearHistory.Name = "btnClearHistory"
-        Me.btnClearHistory.Size = New System.Drawing.Size(162, 31)
-        Me.btnClearHistory.TabIndex = 115
-        Me.btnClearHistory.Text = "Clear History"
-        Me.btnClearHistory.UseVisualStyleBackColor = True
-        '
         'frmShowHighScores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(602, 434)
-        Me.Controls.Add(Me.btnClearHistory)
+        Me.ClientSize = New System.Drawing.Size(602, 402)
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lblCurrentHighScore)
@@ -113,5 +102,4 @@ Partial Class frmShowHighScores
     Friend WithEvents lblCurrentHighScore As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents btnClose As System.Windows.Forms.Button
-    Friend WithEvents btnClearHistory As System.Windows.Forms.Button
 End Class

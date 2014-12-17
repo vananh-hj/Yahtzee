@@ -46,22 +46,8 @@ Public Class frmShowHighScores
         Catch
             MessageBox.Show("Error in displaying High Score History.")
         End Try
-
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnClearHistory.Click
-        Dim writeOverTextFile As StreamWriter
-        'Open and append score information to HighScore.txt file
-        'Open file to write/hold player's name playerName.txt file
-        'writeOverTextFile = File.CreateText("HighScore.txt")
-        'write score
-        'writeOverTextFile.WriteLine("")
-        'close playerName.txt
-        'writeOverTextFile.Close()
-        'writeOverTextFile.Dispose()
-        'clear listbox
-        'lstHighScores.Items.Clear()
-    End Sub
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
         Me.Close()
         'clear listbox
