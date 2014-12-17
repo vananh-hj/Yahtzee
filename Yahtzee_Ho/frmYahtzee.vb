@@ -52,25 +52,28 @@ Public Class frmYahtzee
         Dim checkboxArray As CheckBox() = {chkRoll1, chkRoll2, chkRoll3, chkRoll4, chkRoll5}
 
         'randomly roll selected die and change image accordingly
-        For k = 0 To 4
-            If checkboxArray(k).Checked Then
-                DieValueArray(k) = randNumber.Next(6) + 1
-                DiceImageChange(k)
-            End If
+        For j = 0 To 10
+            For k = 0 To 4
+                If checkboxArray(k).Checked Then
+                    DieValueArray(k) = randNumber.Next(6) + 1
+                    DiceImageChange(k)
+                End If
+            Next
+            System.Threading.Thread.Sleep(100)
         Next
-
         'Update button text / availability
         RollCount += 1
         CalcSum()
         CalcTally()
         CalcMax()
         CalcZero()
+
         If RollCount = 1 Then
             EnableScoreButtons()
-            btnRollEm.Text = "Roll Em 1/3"
+            btnRollEm.Text = "Roll! (2)"
             EnableChkBoxes()
         ElseIf RollCount = 2 Then
-            btnRollEm.Text = "Roll Em 2/3"
+            btnRollEm.Text = "Roll! (1)"
             EnableChkBoxes()
         ElseIf RollCount = 3 Then
             btnRollEm.Enabled = False
@@ -81,6 +84,7 @@ Public Class frmYahtzee
     Sub DiceImageChange(dieNum As Integer)
         Dim DieImageArray() As PictureBox = {pbxDie1, pbxDie2, pbxDie3, pbxDie4, pbxDie5}
         DieImageArray(dieNum).Image = imlDiceList.Images(DieValueArray(dieNum) - 1)
+        DieImageArray(dieNum).Refresh()
     End Sub
 
     Private Sub btnAces_Click(sender As Object, e As EventArgs) Handles btnAces.Click
@@ -269,7 +273,7 @@ Public Class frmYahtzee
         RollCount = 0
         DisableChkBoxes()
         DisableScoreButtons()
-        btnRollEm.Text = "Roll Em"
+        btnRollEm.Text = "Roll! (3)"
         btnRollEm.Enabled = True
         BonusPointsAdds()
         txtTotalUpperSection.Text = CStr(UpperSection)
@@ -354,7 +358,7 @@ Public Class frmYahtzee
             'flag that game is over so that sub (under timer) HighScore can check for high score
             GameIsOver = True
             HighScoreCheck()
-            'tmrRoll.Stop()
+
         End If
     End Sub
 
@@ -396,10 +400,6 @@ Public Class frmYahtzee
         chkRoll5.Enabled = True
     End Sub
 
-    Private Sub MenuStrip1_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles MenuStrip1.ItemClicked
-
-    End Sub
-
     Private Sub frmYahtzee_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'High Score text file
         Dim FileNum As Integer = FreeFile()
@@ -418,7 +418,6 @@ Public Class frmYahtzee
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles tmrRoll.Tick
         
-
     End Sub
 
     Private Sub ToolTipAces_Popup(sender As Object, e As PopupEventArgs) Handles ToolTipAces.Popup
